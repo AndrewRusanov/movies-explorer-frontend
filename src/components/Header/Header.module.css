@@ -67,6 +67,11 @@
   object-fit: cover;
 }
 
+.account__image:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .movies__container {
   margin: 0;
   padding: 0;

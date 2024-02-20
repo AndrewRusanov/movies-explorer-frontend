@@ -7,11 +7,9 @@ body, html {
 margin: 0 auto;
 padding: 0;
 min-width: 1280px;
-border: 1px solid red;
 }
 
 .page{
-  border: 1px solid red;
   margin: 0 auto;
   padding: 0;
   min-height: 648px;
