@@ -3,17 +3,11 @@ body, html {
   padding: 0;
 }
 
-.main{
-margin: 0 auto;
-padding: 0;
-min-width: 1280px;
-}
-
 .page{
   margin: 0 auto;
   padding: 0;
-  min-height: 648px;
-  background-color: #073042;
+  /* min-width: 1280px; */
+  min-height: 100vh;
   font-family: 'Inter', 'Arial', sans-serif;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
