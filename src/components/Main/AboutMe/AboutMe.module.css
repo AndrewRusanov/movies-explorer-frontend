@@ -1,0 +1,24 @@
+.container{
+  background-color: white;
+  margin: 0 auto;
+  color: black;
+}
+
+.wrapper{
+  border: 1px solid red;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 110px 70px 0 ;
+  padding: 0;
+  padding-bottom: 23px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.21;
+  letter-spacing: -4%;
+  border-bottom: 1px solid black;
+}
