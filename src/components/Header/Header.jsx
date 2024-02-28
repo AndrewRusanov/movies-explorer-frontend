@@ -20,12 +20,12 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         <div className={styles.btn__container}>
           {loggedIn ? (
             <Link to="/profile" className={styles.header__accountText}>
-              <div className={styles.header__account}>
+              <button type="button" className={styles.header__account}>
                 <span className={styles.header__accountText}>Аккаунт</span>
                 <div className={styles.header__accountCircle}>
                   <img src={profileImg} alt="Изображение аватара" />
                 </div>
-              </div>
+              </button>
               {/* <img
                 src={profileImg}
                 alt="Аккаунт пользователя"
