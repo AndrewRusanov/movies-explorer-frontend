@@ -9,7 +9,7 @@ function App() {
 
   return (
       <div className={styles.page}>
-        <Header loggedIn={loggedIn} />
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Main/>
         <Footer/>
       </div>

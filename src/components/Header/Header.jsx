@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import profileImg from "../../images/header__profile.svg";
 import styles from "./Header.module.css";
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, setLoggedIn }) => {
   return (
     <header className={styles.container}>
       <div className={styles.wrapper}>
@@ -19,17 +19,34 @@ const Header = ({ loggedIn }) => {
 
         <div className={styles.btn__container}>
           {loggedIn ? (
-            <img
-              src={profileImg}
-              alt="Аккаунт пользователя"
-              className={styles.account__image}
-            />
+            <Link to="/profile" className={styles.header__accountText}>
+              <div className={styles.header__account}>
+                <span className={styles.header__accountText}>Аккаунт</span>
+                <div className={styles.header__accountCircle}>
+                  <img src={profileImg} alt="Изображение аватара" />
+                </div>
+              </div>
+              {/* <img
+                src={profileImg}
+                alt="Аккаунт пользователя"
+                className={styles.account__image}
+              /> */}
+            </Link>
           ) : (
             <>
-              <NavLink className={styles.auth__link} to="#">
+              <NavLink className={styles.auth__link} to="/signup">
                 Регистрация
               </NavLink>
-              <button className={styles.login__btn}>Войти</button>
+              <Link to="/signin">
+                <button
+                  onClick={() => {
+                    setLoggedIn(true);
+                  }}
+                  className={styles.login__btn}
+                >
+                  Войти
+                </button>
+              </Link>
             </>
           )}
         </div>
