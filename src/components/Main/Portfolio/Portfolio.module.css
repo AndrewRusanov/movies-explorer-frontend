@@ -1,17 +1,17 @@
-.container{
+.prtfolio__container{
   background-color: white;
   margin: 0 auto;
   color: black;
 }
 
-.wrapper{
+.prtfolio__wrapper{
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.title{
+.prtfolio__title{
   color: #A0A0A0;
   font-size: 18px;
   line-height: 20px;
@@ -20,14 +20,14 @@
   padding: 0;
 }
 
-.links {
+.prtfolio__links {
   display: flex;
   flex-direction: column;
   margin: 50px 70px 125px;
   padding: 0;
 }
 
-.link{
+.prtfolio__link{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -40,17 +40,17 @@
   color: black;
 }
 
-.link:hover{
+.prtfolio__link:hover{
   cursor: pointer;
   opacity: 0.7;
 }
 
-.link:last-of-type{
+.prtfolio__link:last-of-type{
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.link:first-of-type{
+.prtfolio__link:first-of-type{
   padding-top: 0;
 }
 

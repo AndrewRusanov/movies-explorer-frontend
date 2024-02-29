@@ -3,12 +3,12 @@ import styles from "./Portfolio.module.css";
 
 const Portfolio = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.wrapper}>
-        <h3 className={styles.title}>Потрфолио</h3>
-        <div className={styles.links}>
+    <section className={styles.prtfolio__container}>
+      <div className={styles.prtfolio__wrapper}>
+        <h3 className={styles.prtfolio__title}>Потрфолио</h3>
+        <div className={styles.prtfolio__links}>
           <a
-            className={styles.link}
+            className={styles.prtfolio__link}
             href="https://github.com/AndrewRusanov/how-to-learn"
             rel="noreferrer"
             target="_blank"
@@ -21,7 +21,7 @@ const Portfolio = () => {
             />
           </a>
           <a
-            className={styles.link}
+            className={styles.prtfolio__link}
             href="https://github.com/AndrewRusanov/russian-travel"
             rel="noreferrer"
             target="_blank"
@@ -34,7 +34,7 @@ const Portfolio = () => {
             />
           </a>
           <a
-            className={styles.link}
+            className={styles.prtfolio__link}
             href="https://github.com/AndrewRusanov/react-mesto-api-full-gha"
             rel="noreferrer"
             target="_blank"

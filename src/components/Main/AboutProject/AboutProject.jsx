@@ -2,24 +2,24 @@ import styles from "./AboutProject.module.css";
 
 const AboutProject = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.wrapper}>
-        <h2 className={styles.title}>О проекте</h2>
-        <div className={styles.aboutContainer}>
-          <div className={styles.aboutBlock}>
-            <h3 className={styles.subtitle}>
+    <section className={styles.aboutProject__container}>
+      <div className={styles.aboutProject__wrapper}>
+        <h2 className={styles.aboutProject__title}>О проекте</h2>
+        <div className={styles.about__container}>
+          <div className={styles.about__block}>
+            <h3 className={styles.about__subtitle}>
               Дипломный проект включал 5 этапов
             </h3>
-            <p className={styles.caption}>
+            <p className={styles.about__caption}>
               Составление плана, работу над бэкэндом, вёрстку, добавление
               функциональности и финальные доработки.
             </p>
           </div>
-          <div className={styles.aboutBlock}>
-            <h3 className={styles.subtitle}>
+          <div className={styles.about__block}>
+            <h3 className={styles.about__subtitle}>
               На выполнение диплома ушло 5 недель
             </h3>
-            <p className={styles.caption}>
+            <p className={styles.about__caption}>
               У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было
               соблюдать, чтобы успешно защититься.
             </p>

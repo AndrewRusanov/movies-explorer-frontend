@@ -2,12 +2,14 @@ import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className={styles.container} >
-      <div className={styles.wrapper} >
-        <h3 className={styles.description} >Учебный проект Яндекс.Практикум x BeatFilm.</h3>
-        <div className={styles.footer__links} >
-          <span className={styles.footer__copyright} >&copy;2024</span>
-          <div className={styles.links__container} >
+    <footer className={styles.footer__container}>
+      <div className={styles.footer__wrapper}>
+        <h3 className={styles.footer__description}>
+          Учебный проект Яндекс.Практикум x BeatFilm.
+        </h3>
+        <div className={styles.footer__links}>
+          <span className={styles.footer__copyright}>&copy;2024</span>
+          <div className={styles.links__container}>
             <a
               className={styles.link}
               href="https://practicum.yandex.ru/"
@@ -31,4 +33,4 @@ const Footer = () => {
   );
 };
 
-export default Footer
+export default Footer;

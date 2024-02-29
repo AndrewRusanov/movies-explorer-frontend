@@ -1,17 +1,17 @@
-.container{
+.techs__container{
   background-color: #F5F5F5;
   margin: 0 auto;
   color: black;
 }
 
-.wrapper{
+.techs__wrapper{
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.title {
+.techs__title {
   margin: 110px 70px 0 ;
   padding: 0;
   padding-bottom: 23px;
@@ -22,14 +22,14 @@
   border-bottom: 1px solid black;
 }
 
-.techContainer {
+.tech__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 90px auto 100px;
 }
 
-.techTitle{
+.tech__title{
   margin: 0 0 26px 0;
   padding: 0;
   font-weight: 400;
@@ -39,7 +39,7 @@
   text-align: center;
 }
 
-.techSubtitle {
+.tech__subtitle {
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -49,7 +49,7 @@
   max-width: 460px;
 }
 
-.techStack__container {
+.stack__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -57,7 +57,7 @@
   padding: 0;
 }
 
-.techStack{
+.stack{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,6 +69,6 @@
   margin-right: 10px;
 }
 
-.techStack:last-of-type{
+.stack:last-of-type{
   margin-right: 0;
 }

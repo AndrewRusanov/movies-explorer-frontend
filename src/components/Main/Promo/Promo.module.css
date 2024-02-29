@@ -1,4 +1,4 @@
-.container {
+.promo__container {
   background-color: #073042;
   margin: 0 auto;
 }
@@ -52,7 +52,7 @@
   object-fit: cover;
 }
 
-.learnMore {
+.promo__learnMore {
   background-color: #073042;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 3px;
@@ -67,7 +67,7 @@
   outline: none;
 }
 
-.learnMore:hover {
+.promo__learnMore:hover {
   cursor: pointer;
   opacity: 0.8;
 }

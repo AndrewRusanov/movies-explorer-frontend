@@ -1,17 +1,17 @@
-.container{
+.footer__container{
   background-color: white;
   margin: 0 auto;
   color: black;
 }
 
-.wrapper{
+.footer__wrapper{
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.description {
+.footer__description {
   width: calc(100% - 70px*2);
   text-align: center;
   font-size: 13px;

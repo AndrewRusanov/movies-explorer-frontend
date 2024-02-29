@@ -3,7 +3,7 @@ import promoImage from "../../../images/promo__image.png";
 
 const Promo = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.promo__container}>
       <div className={styles.promo__wrapper}>
         <div className={styles.promo}>
           <div className={styles.promo__heading}>
@@ -22,7 +22,7 @@ const Promo = () => {
             className={styles.promo__image}
           />
         </div>
-        <button type="button" className={styles.learnMore}>
+        <button type="button" className={styles.promo__learnMore}>
           Узнать больше
         </button>
       </div>

@@ -6,13 +6,15 @@ import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./Portfolio/Portfolio";
 
 const Main = () => {
-  return <main>
-    <Promo/>
-    <AboutProject/>
-    <Techs/>
-    <AboutMe/>
-    <Portfolio/>
-  </main>;
+  return (
+    <main className={styles.main__container}>
+      <Promo />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Portfolio />
+    </main>
+  );
 };
 
 export default Main;

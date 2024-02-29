@@ -1,17 +1,17 @@
-.container{
+.aboutMe__container{
   background-color: white;
   margin: 0 auto;
   color: black;
 }
 
-.wrapper{
+.aboutMe__wrapper{
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.title {
+.aboutMe__title {
   margin: 110px 70px 0 ;
   padding: 0;
   padding-bottom: 23px;
@@ -29,7 +29,7 @@
   padding: 0;
 }
 
-.textContainer{
+.prtfolio__container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,14 +37,14 @@
   padding: 0;
 }
 
-.textWrapper {
+.prtfolio__wrapper {
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
 }
 
-.name {
+.prtfolio__name {
   font-size: 50px;
   line-height: 58px;
   letter-spacing: -4%;
@@ -53,7 +53,7 @@
   padding: 0;
 }
 
-.about{
+.prtfolio__about{
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
@@ -62,7 +62,7 @@
   max-width: 600px;
 }
 
-.description{
+.prtfolio__description{
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -70,14 +70,14 @@
   padding: 0;
 }
 
-.avatar {
+.prtfolio__avatar {
   width: 270px;
   height: 327px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.ghLink {
+.prtfolio__link {
   text-decoration: none;
   font-size: 14px;
   line-height: auto;
@@ -86,12 +86,12 @@
   color: black;
 }
 
-.ghLink:hover{
+.prtfolio__link:hover{
   cursor: pointer;
   opacity: 0.7;
 }
 
-.ghLink:active{
+.prtfolio__link:active{
   color: black;
   text-decoration: underline;
 }
