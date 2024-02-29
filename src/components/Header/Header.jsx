@@ -5,11 +5,11 @@ import styles from "./Header.module.css";
 
 const Header = ({ loggedIn, setLoggedIn }) => {
   return (
-    <header className={styles.container}>
-      <div className={styles.wrapper}>
-        <img src={logo} alt="Логитип проекта" className={styles.logo} />
+    <header className={styles.header__container}>
+      <div className={styles.header__wrapper}>
+        <img src={logo} alt="Логитип проекта" className={styles.header__logo} />
         {loggedIn && (
-          <nav className={styles.movies__container}>
+          <nav className={styles.movies}>
             <NavLink className={styles.movies__link}>Фильмы</NavLink>
             <NavLink className={styles.movies__link}>
               Сохранённые фильмы
@@ -17,24 +17,19 @@ const Header = ({ loggedIn, setLoggedIn }) => {
           </nav>
         )}
 
-        <div className={styles.btn__container}>
+        <div className={styles.buttons__container}>
           {loggedIn ? (
-            <Link to="/profile" className={styles.header__accountText}>
-              <button type="button" className={styles.header__account}>
-                <span className={styles.header__accountText}>Аккаунт</span>
-                <div className={styles.header__accountCircle}>
+            <Link to="/profile" className={styles.account__text}>
+              <button type="button" className={styles.account}>
+                <span className={styles.account__text}>Аккаунт</span>
+                <div className={styles.account__circle}>
                   <img src={profileImg} alt="Изображение аватара" />
                 </div>
               </button>
-              {/* <img
-                src={profileImg}
-                alt="Аккаунт пользователя"
-                className={styles.account__image}
-              /> */}
             </Link>
           ) : (
             <>
-              <NavLink className={styles.auth__link} to="/signup">
+              <NavLink className={styles.header__authLink} to="/signup">
                 Регистрация
               </NavLink>
               <Link to="/signin">
@@ -42,7 +37,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
                   onClick={() => {
                     setLoggedIn(true);
                   }}
-                  className={styles.login__btn}
+                  className={styles.header__loginBtn}
                 >
                   Войти
                 </button>
