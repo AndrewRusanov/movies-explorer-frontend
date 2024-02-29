@@ -2,6 +2,11 @@ import styles from "./Promo.module.css";
 import promoImage from "../../../images/promo__image.png";
 
 const Promo = () => {
+  const handleScrollToComponent = (id) => {
+    const targetComponent = document.getElementById(`${id}`);
+    targetComponent.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className={styles.promo__container}>
       <div className={styles.promo__wrapper}>
@@ -22,7 +27,14 @@ const Promo = () => {
             className={styles.promo__image}
           />
         </div>
-        <button type="button" className={styles.promo__learnMore}>
+        <button
+          type="button"
+          className={styles.promo__learnMore}
+          onClick={() => {
+            console.log("hui");
+            handleScrollToComponent("aboutProject");
+          }}
+        >
           Узнать больше
         </button>
       </div>

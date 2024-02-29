@@ -2,7 +2,7 @@ import styles from "./AboutProject.module.css";
 
 const AboutProject = () => {
   return (
-    <section className={styles.aboutProject__container}>
+    <section id="aboutProject" className={styles.aboutProject__container}>
       <div className={styles.aboutProject__wrapper}>
         <h2 className={styles.aboutProject__title}>О проекте</h2>
         <div className={styles.about__container}>
