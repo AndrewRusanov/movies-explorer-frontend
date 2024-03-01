@@ -31,7 +31,7 @@ const Login = () => {
               setEmail(e.target.value);
             }}
           />
-          <span className={styles.input__caption}>Password</span>
+          <span className={styles.input__caption}>Пароль</span>
           <input
             type="password"
             className={`${styles.input} ${
