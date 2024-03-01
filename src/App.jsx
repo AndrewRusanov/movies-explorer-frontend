@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Movies from "./components/Movies/Movies";
@@ -13,7 +13,11 @@ import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className={styles.page}>
       <Routes>
@@ -32,7 +36,7 @@ function App() {
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound goBack={goBack} />} />
       </Routes>
     </div>
   );

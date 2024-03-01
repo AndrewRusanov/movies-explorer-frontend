@@ -1,0 +1,41 @@
+.notFound__container {
+  background-color: white;
+  margin: 0 auto;
+}
+
+.notFound__wrapper {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 246px auto 0;
+}
+
+.notFound__title {
+  color: black;
+  font-size: 140px;
+  line-height: auto;
+  font-weight: 400;
+  margin: 0 auto;
+}
+
+.notFound__subtitle {
+  color: black;
+  font-size: 16px;
+  line-height: auto;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.notFound__button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 184px auto 0;
+  color: #3456F3;
+  font-size: 14px;
+  line-height: auto;
+  font-weight: 400;
+}
