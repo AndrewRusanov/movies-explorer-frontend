@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import Movies from "./components/Movies/Movies";
 import SavedMovies from "./components/SavedMovies/SavedMovies";
 import Profile from "./components/Profile/Profile";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
