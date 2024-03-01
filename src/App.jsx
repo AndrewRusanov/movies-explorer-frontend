@@ -18,6 +18,7 @@ function App() {
   const goBack = () => {
     navigate(-1);
   };
+
   return (
     <div className={styles.page}>
       <Routes>

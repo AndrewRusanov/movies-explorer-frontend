@@ -31,7 +31,6 @@ const Promo = () => {
           type="button"
           className={styles.promo__learnMore}
           onClick={() => {
-            console.log("hui");
             handleScrollToComponent("aboutProject");
           }}
         >
