@@ -51,6 +51,8 @@ const Login = () => {
         </div>
         <div className={styles.navigation__container}>
           <button
+            type="submit"
+            disabled={!email || !password}
             className={styles.login__button}
             onClick={() => navigate("/movies")}
           >

@@ -105,6 +105,13 @@
   opacity: 0.8;
 }
 
+.register__button:disabled {
+  cursor: default;
+  opacity: 1;
+  background-color: #f8f8f8;
+  color: black;
+}
+
 .register__description {
   color: #a0a0a0;
   font-size: 14px;

@@ -58,6 +58,7 @@ const Register = () => {
         <div className={styles.navigation__container}>
           <button
             type="submit"
+            disabled={!username || !email || !password}
             className={styles.register__button}
             onClick={() => navigate("/signin")}
           >
