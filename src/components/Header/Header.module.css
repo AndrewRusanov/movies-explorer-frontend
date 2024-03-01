@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.header__container_light {
+  background-color: white;
+}
+
 .header__wrapper{
   max-width: 1280px;
   display: flex;
@@ -102,6 +106,10 @@
   font-weight: 500;
 }
 
+.movies__link_light {
+  color: black;
+}
+
 .account{
   display: flex;
   flex-direction: row;
@@ -118,6 +126,11 @@
 .account:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.account_light {
+  background-color: white;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, .08);
 }
 
 .account__text{
@@ -138,4 +151,8 @@
   border-radius: 50%;
   background-color: white;
   margin-right: 3px;
+}
+
+.account__circle_light {
+  background-color: #f9f9f9;
 }

@@ -5,13 +5,29 @@ import styles from "./Header.module.css";
 
 const Header = ({ loggedIn, setLoggedIn }) => {
   return (
-    <header className={styles.header__container}>
+    <header
+      className={`${styles.header__container} ${
+        loggedIn ? styles.header__container_light : ""
+      }`}
+    >
       <div className={styles.header__wrapper}>
         <img src={logo} alt="Логитип проекта" className={styles.header__logo} />
         {loggedIn && (
           <nav className={styles.movies}>
-            <NavLink className={styles.movies__link}>Фильмы</NavLink>
-            <NavLink className={styles.movies__link}>
+            <NavLink
+              to="/movies"
+              className={`${styles.movies__link}  ${
+                loggedIn ? styles.movies__link_light : ""
+              }`}
+            >
+              Фильмы
+            </NavLink>
+            <NavLink
+              to="/saved-movies"
+              className={`${styles.movies__link}  ${
+                loggedIn ? styles.movies__link_light : ""
+              }`}
+            >
               Сохранённые фильмы
             </NavLink>
           </nav>
@@ -20,9 +36,18 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         <div className={styles.buttons__container}>
           {loggedIn ? (
             <Link to="/profile" className={styles.account__text}>
-              <button type="button" className={styles.account}>
+              <button
+                type="button"
+                className={`${styles.account} ${
+                  loggedIn ? styles.account_light : ""
+                }`}
+              >
                 <span className={styles.account__text}>Аккаунт</span>
-                <div className={styles.account__circle}>
+                <div
+                  className={`${styles.account__circle} ${
+                    loggedIn ? styles.account__circle_light : ""
+                  }`}
+                >
                   <img src={profileImg} alt="Изображение аватара" />
                 </div>
               </button>
