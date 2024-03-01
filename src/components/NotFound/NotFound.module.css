@@ -39,3 +39,8 @@
   line-height: auto;
   font-weight: 400;
 }
+
+.notFound__button:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
