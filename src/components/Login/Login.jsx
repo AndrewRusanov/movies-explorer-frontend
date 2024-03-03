@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "../../images/header__logo.svg";
 import styles from "./Login.module.css";
-import emailRegex from "../../utils/constants";
+import { emailRegex } from "../../utils/constants";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {

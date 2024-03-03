@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Register.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
-import emailRegex from "../../utils/constants";
+import { emailRegex } from "../../utils/constants";
 
 const Register = () => {
   const [username, setUsername] = useState(null);

@@ -12,7 +12,7 @@ import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [userName, setUserName] = useState("Андрей");
   const navigate = useNavigate();
 
@@ -42,7 +42,16 @@ function App() {
             </>
           }
         />
-        <Route path="/movies" element={<Movies />} />
+        <Route
+          path="/movies"
+          element={
+            <>
+              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <Movies />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
