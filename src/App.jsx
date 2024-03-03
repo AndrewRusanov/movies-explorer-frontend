@@ -13,6 +13,7 @@ import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("Андрей");
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -32,7 +33,15 @@ function App() {
             </>
           }
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <Profile userName={userName} setUserName={setUserName} />
+            </>
+          }
+        />
         <Route path="/movies" element={<Movies />} />
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/signin" element={<Login />} />
