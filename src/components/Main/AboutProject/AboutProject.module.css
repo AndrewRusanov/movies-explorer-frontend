@@ -1,10 +1,10 @@
-.aboutProject__container{
+.aboutProject__container {
   background-color: white;
   margin: 0 auto;
   color: black;
 }
 
-.aboutProject__wrapper{
+.aboutProject__wrapper {
   max-width: 1280px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 }
 
 .aboutProject__title {
-  margin: 110px 70px 0 ;
+  margin: 110px 70px 0;
   padding: 0;
   padding-bottom: 23px;
   font-weight: 400;
@@ -22,7 +22,7 @@
   border-bottom: 1px solid black;
 }
 
-.about__container{
+.about__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -66,7 +66,7 @@
   flex-direction: column;
 }
 
-.timeBar__title_back{
+.timeBar__title_back {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
@@ -74,11 +74,11 @@
   width: 200px;
   margin: 0;
   padding: 9px 14px 9px 14px;
-  background-color: #2BE080;
+  background-color: #2be080;
 }
 
-.timeBar__title_front{
-  background-color: #F2F2F2;
+.timeBar__title_front {
+  background-color: #f2f2f2;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
@@ -89,7 +89,7 @@
 }
 
 .timeBar__subtitle_back {
-  color: #A0A0A0;
+  color: #a0a0a0;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
@@ -99,8 +99,8 @@
   padding: 9px 14px 9px 14px;
 }
 
-.timeBar__subtitle_front{
-  color: #A0A0A0;
+.timeBar__subtitle_front {
+  color: #a0a0a0;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
@@ -108,4 +108,127 @@
   width: 200px;
   margin: 0;
   padding: 9px 356px 9px 356px;
+}
+
+@media screen and (max-width: 1279px) {
+  .aboutProject__wrapper {
+    max-width: 768px;
+  }
+
+  .aboutProject__title {
+    margin: 90px 50px 0;
+  }
+
+  .about__container {
+    margin: 70px 50px 93px 50px;
+  }
+
+  .about__block {
+    width: 319px;
+  }
+
+  .about__subtitle {
+    margin-bottom: 22px;
+  }
+
+  .about__caption {
+    font-size: 12px;
+    line-height: 28px;
+    width: 319px;
+  }
+
+  .timeBar {
+    margin: 0 50px 90px;
+  }
+
+  .timeBar__title_back {
+    width: 120px;
+    padding: 9px 10px 9px 10px;
+  }
+
+  .timeBar__title_front {
+    width: 120px;
+    padding: 9px 204px 9px 204px;
+  }
+
+  .timeBar__subtitle_back {
+    width: 120px;
+    padding: 9px 10px 9px 10px;
+  }
+
+  .timeBar__subtitle_front {
+    width: 120px;
+    padding: 9px 204px 9px 204px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject__wrapper {
+    max-width: 320px;
+  }
+
+  .aboutProject__title {
+    margin: 70px 18px 4px;
+    padding-bottom: 28px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .about__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 18px 60px 18px;
+  }
+
+  .about__block {
+    width: 284px;
+  }
+
+  .about__subtitle {
+    font-size: 18px;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+
+  .about__subtitle:last-of-type {
+    margin-top: 56px;
+  }
+
+  .about__caption {
+    font-size: 11px;
+    line-height: 26px;
+    width: 284px;
+  }
+
+  .timeBar {
+    margin: 0 18px 69px;
+  }
+
+  .timeBar__title_back {
+    font-size: 11px;
+    line-height: normal;
+    width: 80px;
+    padding: 11px 10px 11px 10px;
+  }
+
+  .timeBar__title_front {
+    font-size: 11px;
+    line-height: normal;
+    width: 80px;
+    padding: 11px 52px 11px 52px;
+  }
+
+  .timeBar__subtitle_back {
+    font-size: 11px;
+    line-height: normal;
+    width: 80px;
+    padding: 11px 10px 11px 10px;
+  }
+
+  .timeBar__subtitle_front {
+    font-size: 11px;
+    line-height: normal;
+    width: 80px;
+    padding: 11px 52px 11px 52px;
+  }
 }
