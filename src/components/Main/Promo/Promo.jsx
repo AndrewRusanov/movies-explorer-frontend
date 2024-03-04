@@ -11,21 +11,20 @@ const Promo = () => {
     <section className={styles.promo__container}>
       <div className={styles.promo__wrapper}>
         <div className={styles.promo}>
+          <img
+            src={promoImage}
+            alt="Изображение планеты Web"
+            className={styles.promo__image}
+          />
           <div className={styles.promo__heading}>
             <h1 className={styles.promo__title}>
-              Учебный проект студента факультета <br />
-              Веб-разработки.
+              Учебный проект студента факультета Веб-&nbsp;разработки.
             </h1>
             <p className={styles.promo__subtitle}>
               Листайте ниже, чтобы узнать больше про этот проект и его
               создателя.
             </p>
           </div>
-          <img
-            src={promoImage}
-            alt="Изображение планеты Web"
-            className={styles.promo__image}
-          />
         </div>
         <button
           type="button"
