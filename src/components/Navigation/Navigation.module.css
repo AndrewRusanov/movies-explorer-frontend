@@ -1,0 +1,33 @@
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: end;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  transition: opacity 1s, visibility 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.overlay_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navigation {
+  background-color: white;
+  height: 100vh;
+  width: 520px;
+  display: block;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .navigation {
+    width: 320px;
+  }
+}

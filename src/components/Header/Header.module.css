@@ -1,6 +1,7 @@
 .header__container {
   background-color: #073042;
   margin: 0 auto;
+  position: relative;
 }
 
 .header__container_light {

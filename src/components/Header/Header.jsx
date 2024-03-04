@@ -2,8 +2,11 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import profileImg from "../../images/header__profile.svg";
 import styles from "./Header.module.css";
+import { useState } from "react";
+import Navigation from "../Navigation/Navigation";
 
 const Header = ({ loggedIn, setLoggedIn }) => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
   const location = useLocation();
 
   return (
@@ -59,7 +62,10 @@ const Header = ({ loggedIn, setLoggedIn }) => {
                   </div>
                 </button>
               </Link>
-              <button className={styles.burger__button}>
+              <button
+                className={styles.burger__button}
+                onClick={() => setIsMenuOpened(true)}
+              >
                 <div
                   className={`${styles.burger__buttonLine} ${
                     location.pathname !== "/" &&
@@ -79,6 +85,12 @@ const Header = ({ loggedIn, setLoggedIn }) => {
                   }`}
                 ></div>
               </button>
+              {isMenuOpened && (
+                <Navigation
+                  isMenuOpened={isMenuOpened}
+                  setIsMenuOpened={setIsMenuOpened}
+                />
+              )}
             </>
           ) : (
             <>
