@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = ({ setLoggedIn }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -34,16 +35,24 @@ const Profile = ({ setLoggedIn }) => {
           </label>
         </form>
         {isEditing ? (
-          <button
-            type="submit"
-            className={styles.profile__submit}
-            onClick={(e) => {
-              e.preventDefault();
-              setIsEditing(false);
-            }}
-          >
-            Сохранить
-          </button>
+          <>
+            {isError && (
+              <span className={styles.profile__error}>
+                При обновлении профиля произошла ошибка.
+              </span>
+            )}
+            <button
+              type="submit"
+              disabled={isError}
+              className={styles.profile__submit}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsEditing(false);
+              }}
+            >
+              Сохранить
+            </button>
+          </>
         ) : (
           <>
             <button

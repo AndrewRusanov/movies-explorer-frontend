@@ -25,6 +25,8 @@ const Header = ({ loggedIn, setLoggedIn }) => {
               to="/movies"
               className={`${styles.movies__link}  ${
                 location.pathname !== "/" ? styles.movies__link_light : ""
+              } ${
+                location.pathname === "/movies" && styles.movies__link_active
               }`}
             >
               Фильмы
@@ -33,6 +35,9 @@ const Header = ({ loggedIn, setLoggedIn }) => {
               to="/saved-movies"
               className={`${styles.movies__link}  ${
                 location.pathname !== "/" ? styles.movies__link_light : ""
+              } ${
+                location.pathname === "/saved-movies" &&
+                styles.movies__link_active
               }`}
             >
               Сохранённые фильмы

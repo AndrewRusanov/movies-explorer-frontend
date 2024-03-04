@@ -85,7 +85,7 @@
   opacity: 0.7;
 }
 
-.movies__link:active {
+.movies__link_active {
   font-weight: 500;
 }
 
