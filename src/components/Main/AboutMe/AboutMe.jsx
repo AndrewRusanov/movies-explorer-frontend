@@ -10,7 +10,9 @@ const AboutMe = () => {
           <div className={styles.prtfolio__container}>
             <div className={styles.prtfolio__wrapper}>
               <h3 className={styles.prtfolio__name}>Андрей</h3>
-              <h4 className={styles.prtfolio__about}>Фронтенд-разработчик, 21 год</h4>
+              <h4 className={styles.prtfolio__about}>
+                Фронтенд-разработчик, 21 год
+              </h4>
               <p className={styles.prtfolio__description}>
                 Я живу в Белгороде, учусь в БГТУ им. В. Г. Шухова по направлению
                 "Автоматизация технологических процессов и производств". Недавно

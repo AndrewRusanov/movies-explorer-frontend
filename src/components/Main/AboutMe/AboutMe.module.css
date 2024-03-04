@@ -111,77 +111,35 @@
   }
 
   .portfolio {
-    display: flex;
-    flex-direction: row;
-    margin: 66px 70px 100px;
-    padding: 0;
+    margin: 66px 50px 90px;
   }
 
   .prtfolio__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 270px 0 0;
-    padding: 0;
-  }
-
-  .prtfolio__wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+    margin: 0 49px 0 0;
   }
 
   .prtfolio__name {
-    font-size: 50px;
-    line-height: 58px;
-    letter-spacing: -4%;
-    font-weight: 400;
-    margin: 0 0 18px;
-    padding: 0;
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0 0 16px;
   }
 
   .prtfolio__about {
-    font-size: 18px;
-    line-height: 20px;
-    font-weight: 500;
-    margin: 0 0 26px;
-    padding: 0;
-    max-width: 600px;
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 0 20px;
+    max-width: 348px;
   }
 
   .prtfolio__description {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
+    font-size: 12px;
+    line-height: 28px;
+    max-width: 364px;
   }
 
   .prtfolio__avatar {
-    width: 270px;
-    height: 327px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  .prtfolio__link {
-    text-decoration: none;
-    font-size: 14px;
-    line-height: auto;
-    font-weight: 500;
-    width: fit-content;
-    color: black;
-  }
-
-  .prtfolio__link:hover {
-    cursor: pointer;
-    opacity: 0.7;
-  }
-
-  .prtfolio__link:active {
-    color: black;
-    text-decoration: underline;
+    width: 255px;
+    height: 307px;
   }
 }
 
