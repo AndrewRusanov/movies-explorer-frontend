@@ -1,13 +1,15 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import profileImg from "../../images/header__profile.svg";
 import styles from "./Header.module.css";
 
 const Header = ({ loggedIn, setLoggedIn }) => {
+  const location = useLocation();
+
   return (
     <header
       className={`${styles.header__container} ${
-        loggedIn ? styles.header__container_light : ""
+        location.pathname !== "/" ? styles.header__container_light : ""
       }`}
     >
       <div className={styles.header__wrapper}>
@@ -17,7 +19,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             <NavLink
               to="/movies"
               className={`${styles.movies__link}  ${
-                loggedIn ? styles.movies__link_light : ""
+                location.pathname !== "/" ? styles.movies__link_light : ""
               }`}
             >
               Фильмы
@@ -25,7 +27,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             <NavLink
               to="/saved-movies"
               className={`${styles.movies__link}  ${
-                loggedIn ? styles.movies__link_light : ""
+                location.pathname !== "/" ? styles.movies__link_light : ""
               }`}
             >
               Сохранённые фильмы
@@ -35,23 +37,47 @@ const Header = ({ loggedIn, setLoggedIn }) => {
 
         <div className={styles.buttons__container}>
           {loggedIn ? (
-            <Link to="/profile" className={styles.account__text}>
-              <button
-                type="button"
-                className={`${styles.account} ${
-                  loggedIn ? styles.account_light : ""
-                }`}
-              >
-                <span className={styles.account__text}>Аккаунт</span>
-                <div
-                  className={`${styles.account__circle} ${
-                    loggedIn ? styles.account__circle_light : ""
+            <>
+              <Link to="/profile" className={styles.account__text}>
+                <button
+                  type="button"
+                  className={`${styles.account} ${
+                    location.pathname !== "/" ? styles.account_light : ""
                   }`}
                 >
-                  <img src={profileImg} alt="Изображение аватара" />
-                </div>
+                  <span className={styles.account__text}>Аккаунт</span>
+                  <div
+                    className={`${styles.account__circle} ${
+                      location.pathname !== "/"
+                        ? styles.account__circle_light
+                        : ""
+                    }`}
+                  >
+                    <img src={profileImg} alt="Изображение аватара" />
+                  </div>
+                </button>
+              </Link>
+              <button className={styles.burger__button}>
+                <div
+                  className={`${styles.burger__buttonLine} ${
+                    location.pathname !== "/" &&
+                    styles.burger__buttonLine_logged
+                  }`}
+                ></div>
+                <div
+                  className={`${styles.burger__buttonLine} ${
+                    location.pathname !== "/" &&
+                    styles.burger__buttonLine_logged
+                  }`}
+                ></div>
+                <div
+                  className={`${styles.burger__buttonLine} ${
+                    location.pathname !== "/" &&
+                    styles.burger__buttonLine_logged
+                  }`}
+                ></div>
               </button>
-            </Link>
+            </>
           ) : (
             <>
               <NavLink className={styles.header__authLink} to="/signup">

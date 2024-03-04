@@ -56,7 +56,7 @@ const Login = ({ setLoggedIn }) => {
             className={styles.login__button}
             onClick={() => {
               setLoggedIn(true);
-              navigate("/movies");
+              navigate("/");
             }}
           >
             Войти

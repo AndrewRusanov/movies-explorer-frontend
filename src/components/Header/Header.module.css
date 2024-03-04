@@ -1,4 +1,4 @@
-.header__container{
+.header__container {
   background-color: #073042;
   margin: 0 auto;
 }
@@ -7,7 +7,7 @@
   background-color: white;
 }
 
-.header__wrapper{
+.header__wrapper {
   max-width: 1280px;
   display: flex;
   flex-direction: row;
@@ -16,35 +16,38 @@
   margin: 0 auto;
 }
 
-.header__logo{
+.header__logo {
   width: 38px;
   height: 38px;
   margin: 18px 0 18px 70px;
 }
 
-.buttons__container{
+.buttons__container {
   margin-right: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.header__loginBtn{
-  background-color: #2BE080;
+.header__loginBtn {
+  background-color: #2be080;
   width: 76px;
   height: 32px;
   outline: none;
   border: none;
   margin: 0 0 0 30px;
   border-radius: 3px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
 }
 
-.header__loginBtn:hover{
+.header__loginBtn:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.header__authLink{
+.header__authLink {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -52,30 +55,9 @@
   text-decoration: none;
 }
 
-.header__authLink:hover{
+.header__authLink:hover {
   cursor: pointer;
   opacity: 0.7;
-}
-
-.account__button{
-  background: none;
-  outline: none;
-  width: fit-content;
-  margin: 0;
-  padding: 0;
-}
-
-.account__image{
-  margin: 0;
-  padding: 0;
-  width: 100px;
-  height: 32px;
-  object-fit: cover;
-}
-
-.account__image:hover{
-  cursor: pointer;
-  opacity: 0.8;
 }
 
 .movies {
@@ -110,7 +92,7 @@
   color: black;
 }
 
-.account{
+.account {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -118,7 +100,7 @@
   width: 100px;
   height: 32px;
   border-radius: 40px;
-  background-color: #2BE080;
+  background-color: #2be080;
   padding: 0;
   border: none;
 }
@@ -130,10 +112,10 @@
 
 .account_light {
   background-color: white;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, .08);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
 }
 
-.account__text{
+.account__text {
   color: #000;
   text-decoration: none;
   font-size: 13px;
@@ -155,4 +137,85 @@
 
 .account__circle_light {
   background-color: #f9f9f9;
+}
+
+.burger__button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: transparent;
+  padding: 11px 8px 10px 8px;
+  margin: 0;
+}
+
+.burger__buttonLine {
+  width: 28px;
+  height: 3px;
+  margin-bottom: 7px;
+  padding: 0;
+  background-color: white;
+}
+
+.burger__buttonLine:last-of-type {
+  margin-bottom: 0;
+}
+
+.burger__buttonLine_logged {
+  background-color: black;
+}
+
+.burger__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1279px) {
+  .header__wrapper {
+    max-width: 768px;
+  }
+
+  .header__logo {
+    margin: 18px 0 18px 30px;
+  }
+
+  .buttons__container {
+    margin-right: 30px;
+  }
+
+  .movies {
+    display: none;
+  }
+
+  .account {
+    display: none;
+  }
+
+  .burger__button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__wrapper {
+    max-width: 320px;
+  }
+
+  .header__logo {
+    margin: 18px 0 18px 14px;
+  }
+
+  .buttons__container {
+    margin-right: 14px;
+  }
+
+  .burger__button {
+    width: 40px;
+    height: 40px;
+    padding: 10px 9px 10px 9px;
+  }
+
+  .burger__buttonLine {
+    width: 22px;
+  }
 }

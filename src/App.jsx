@@ -12,7 +12,7 @@ import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const goBack = () => {
