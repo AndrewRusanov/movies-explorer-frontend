@@ -34,7 +34,14 @@ const Profile = ({ setLoggedIn }) => {
           </label>
         </form>
         {isEditing ? (
-          <button type="submit" className={styles.profile__submit}>
+          <button
+            type="submit"
+            className={styles.profile__submit}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsEditing(false);
+            }}
+          >
             Сохранить
           </button>
         ) : (

@@ -115,3 +115,37 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+@media screen and (max-width: 1279px) {
+  .profile__wrapper {
+    margin: 236px auto 269px;
+  }
+
+  .profile__form {
+    margin: 96px auto 210px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__wrapper {
+    margin: 70px auto 40px;
+    width: 260px;
+  }
+
+  .profile__form {
+    margin: 80px auto 379px;
+  }
+
+  .profile__edit {
+    font-size: 12px;
+  }
+
+  .profile__submit {
+    font-size: 12px;
+    width: calc(100% - 30px * 2);
+  }
+
+  .profile__signOut {
+    font-size: 12px;
+  }
+}
