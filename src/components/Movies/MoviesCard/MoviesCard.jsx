@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 const MoviesCard = ({ title, duration }) => {
   const [isLiked, setIsLiked] = useState(false);
   const location = useLocation();
-  console.log("location", location);
 
   return (
     <div className={styles.card}>

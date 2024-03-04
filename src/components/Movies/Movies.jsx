@@ -10,7 +10,7 @@ const Movies = () => {
       <div className={styles.movies__wrapper}>
         <SearchForm />
         <FilterCheckbox />
-        <MoviesCardList data={moviesCardList} />
+        <MoviesCardList moviesList={moviesCardList} />
       </div>
     </section>
   );

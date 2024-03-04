@@ -12,7 +12,6 @@
   margin: 70px 70px 50px;
   display: grid;
   grid-template-columns: repeat(4, 270px);
-  grid-template-rows: repeat(1, 1fr);
   row-gap: 38px;
   column-gap: 20px;
 }
@@ -35,4 +34,35 @@
 .cardList__button:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+  .cardList__container {
+    max-width: 768px;
+  }
+
+  .cardList__wrapper {
+    margin: 70px 30px 50px;
+    grid-template-columns: repeat(2, 339px);
+    row-gap: 30px;
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cardList__container {
+    max-width: 320px;
+  }
+
+  .cardList__wrapper {
+    margin: 40px 10px 60px;
+    grid-template-columns: repeat(1, 300px);
+    row-gap: 34px;
+    column-gap: 0;
+  }
+
+  .cardList__button {
+    width: 240px;
+    height: 36px;
+  }
 }
