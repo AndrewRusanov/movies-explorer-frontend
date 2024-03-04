@@ -1,10 +1,10 @@
-.aboutMe__container{
+.aboutMe__container {
   background-color: white;
   margin: 0 auto;
   color: black;
 }
 
-.aboutMe__wrapper{
+.aboutMe__wrapper {
   max-width: 1280px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 }
 
 .aboutMe__title {
-  margin: 110px 70px 0 ;
+  margin: 110px 70px 0;
   padding: 0;
   padding-bottom: 23px;
   font-weight: 400;
@@ -29,7 +29,7 @@
   padding: 0;
 }
 
-.prtfolio__container{
+.prtfolio__container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,7 +53,7 @@
   padding: 0;
 }
 
-.prtfolio__about{
+.prtfolio__about {
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
@@ -62,7 +62,7 @@
   max-width: 600px;
 }
 
-.prtfolio__description{
+.prtfolio__description {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -86,12 +86,104 @@
   color: black;
 }
 
-.prtfolio__link:hover{
+.prtfolio__link:hover {
   cursor: pointer;
   opacity: 0.7;
 }
 
-.prtfolio__link:active{
+.prtfolio__link:active {
   color: black;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1279px) {
+  .aboutMe__wrapper {
+    max-width: 768px;
+  }
+
+  .aboutMe__title {
+    margin: 90px 50px 0;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.21;
+    letter-spacing: -4%;
+    border-bottom: 1px solid black;
+  }
+
+  .portfolio {
+    display: flex;
+    flex-direction: row;
+    margin: 66px 70px 100px;
+    padding: 0;
+  }
+
+  .prtfolio__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 270px 0 0;
+    padding: 0;
+  }
+
+  .prtfolio__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prtfolio__name {
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -4%;
+    font-weight: 400;
+    margin: 0 0 18px;
+    padding: 0;
+  }
+
+  .prtfolio__about {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 0 0 26px;
+    padding: 0;
+    max-width: 600px;
+  }
+
+  .prtfolio__description {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prtfolio__avatar {
+    width: 270px;
+    height: 327px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .prtfolio__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: auto;
+    font-weight: 500;
+    width: fit-content;
+    color: black;
+  }
+
+  .prtfolio__link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  .prtfolio__link:active {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 767px) {
 }
