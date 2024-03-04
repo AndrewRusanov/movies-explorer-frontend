@@ -7,6 +7,11 @@ const AboutMe = () => {
       <div className={styles.aboutMe__wrapper}>
         <h2 className={styles.aboutMe__title}>Студент</h2>
         <div className={styles.portfolio}>
+          <img
+            className={styles.prtfolio__avatar}
+            src={avatar}
+            alt="Изображение пользователя"
+          />
           <div className={styles.prtfolio__container}>
             <div className={styles.prtfolio__wrapper}>
               <h3 className={styles.prtfolio__name}>Андрей</h3>
@@ -32,11 +37,6 @@ const AboutMe = () => {
               Github
             </a>
           </div>
-          <img
-            className={styles.prtfolio__avatar}
-            src={avatar}
-            alt="Изображение пользователя"
-          />
         </div>
       </div>
     </section>
