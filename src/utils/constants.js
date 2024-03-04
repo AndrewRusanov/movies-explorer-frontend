@@ -32,4 +32,12 @@ const moviesCardList = [
   { title: "33 cлова о дизайне", duration: "1ч42м" },
 ];
 
-export { emailRegex, moviesCardList };
+const savedMoviesCardList = [
+  { title: "33 cлова о дизайне", duration: "1ч42м" },
+  { title: "33 cлова о дизайне", duration: "1ч42м" },
+  { title: "33 cлова о дизайне", duration: "1ч42м" },
+  { title: "33 cлова о дизайне", duration: "1ч42м" },
+  { title: "33 cлова о дизайне", duration: "1ч42м" },
+];
+
+export { emailRegex, moviesCardList, savedMoviesCardList };

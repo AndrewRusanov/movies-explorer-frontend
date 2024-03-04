@@ -1,0 +1,13 @@
+.movies__container {
+  color: black;
+  margin: 0 auto;
+}
+
+.movies__wrapper {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}

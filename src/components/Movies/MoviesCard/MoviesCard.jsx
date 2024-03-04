@@ -1,9 +1,11 @@
 import styles from "./MoviesCard.module.css";
 import defaultCardImage from "../../../images/defaultCardImage.png";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const MoviesCard = ({ title, duration }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const location = useLocation();
 
   return (
     <div className={styles.card}>
@@ -14,15 +16,19 @@ const MoviesCard = ({ title, duration }) => {
       />
       <div className={styles.card__about}>
         <p className={styles.card__title}>{title}</p>
-        <button
-          type="button"
-          className={`${styles.card__like} ${
-            isLiked ? styles.card__like_active : ""
-          }`}
-          onClick={() => {
-            setIsLiked(!isLiked);
-          }}
-        ></button>
+        {location === "/movies" ? (
+          <button
+            type="button"
+            className={`${styles.card__like} ${
+              isLiked ? styles.card__like_active : ""
+            }`}
+            onClick={() => {
+              setIsLiked(!isLiked);
+            }}
+          ></button>
+        ) : (
+          <button type="button" className={styles.card__delete}></button>
+        )}
       </div>
       <span className={styles.card__duration}>{duration}</span>
     </div>

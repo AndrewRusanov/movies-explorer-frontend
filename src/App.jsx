@@ -52,7 +52,16 @@ function App() {
             </>
           }
         />
-        <Route path="/saved-movies" element={<SavedMovies />} />
+        <Route
+          path="/saved-movies"
+          element={
+            <>
+              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <SavedMovies />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="*" element={<NotFound goBack={goBack} />} />
