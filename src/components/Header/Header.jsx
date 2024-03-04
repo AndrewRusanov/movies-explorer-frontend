@@ -13,7 +13,9 @@ const Header = ({ loggedIn, setLoggedIn }) => {
       }`}
     >
       <div className={styles.header__wrapper}>
-        <img src={logo} alt="Логитип проекта" className={styles.header__logo} />
+        <NavLink to="/" className={styles.header__logo}>
+          <img src={logo} alt="Логитип проекта" />
+        </NavLink>
         {loggedIn && (
           <nav className={styles.movies}>
             <NavLink
