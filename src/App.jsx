@@ -13,7 +13,6 @@ import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
-  const [userName, setUserName] = useState("Андрей");
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -38,7 +37,7 @@ function App() {
           element={
             <>
               <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Profile userName={userName} setUserName={setUserName} />
+              <Profile setLoggedIn={setLoggedIn} />
             </>
           }
         />
@@ -62,7 +61,7 @@ function App() {
             </>
           }
         />
-        <Route path="/signin" element={<Login />} />
+        <Route path="/signin" element={<Login setLoggedIn={setLoggedIn} />} />
         <Route path="/signup" element={<Register />} />
         <Route path="*" element={<NotFound goBack={goBack} />} />
       </Routes>

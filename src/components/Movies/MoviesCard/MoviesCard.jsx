@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 const MoviesCard = ({ title, duration }) => {
   const [isLiked, setIsLiked] = useState(false);
   const location = useLocation();
+  console.log("location", location);
 
   return (
     <div className={styles.card}>
@@ -16,7 +17,7 @@ const MoviesCard = ({ title, duration }) => {
       />
       <div className={styles.card__about}>
         <p className={styles.card__title}>{title}</p>
-        {location === "/movies" ? (
+        {location.pathname === "/movies" ? (
           <button
             type="button"
             className={`${styles.card__like} ${

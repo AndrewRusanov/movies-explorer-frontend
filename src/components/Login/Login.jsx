@@ -4,7 +4,7 @@ import styles from "./Login.module.css";
 import { emailRegex } from "../../utils/constants";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setLoggedIn }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [isError, setIsError] = useState(false);
@@ -54,7 +54,10 @@ const Login = () => {
             type="submit"
             disabled={!email || !password}
             className={styles.login__button}
-            onClick={() => navigate("/movies")}
+            onClick={() => {
+              setLoggedIn(true);
+              navigate("/movies");
+            }}
           >
             Войти
           </button>

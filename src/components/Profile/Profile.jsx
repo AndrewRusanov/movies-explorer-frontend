@@ -2,14 +2,14 @@ import { useState } from "react";
 import styles from "./Profile.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Profile = ({ userName, setUserName }) => {
+const Profile = ({ setLoggedIn }) => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
   return (
     <section className={styles.profile__container}>
       <div className={styles.profile__wrapper}>
-        <h1 className={styles.profile__title}>Привет, {userName}!</h1>
+        <h1 className={styles.profile__title}>Привет, Виталий!</h1>
         <form className={styles.profile__form}>
           <label className={styles.input__placeholder}>
             Имя
@@ -17,7 +17,7 @@ const Profile = ({ userName, setUserName }) => {
               type="text"
               disabled={!isEditing}
               className={styles.profile__input}
-              value="Андрей"
+              value="Виталий"
               onChange={(e) => setIsEditing(true)}
             />
           </label>
@@ -52,7 +52,10 @@ const Profile = ({ userName, setUserName }) => {
             <button
               type="button"
               className={styles.profile__signOut}
-              onClick={navigate("/signin")}
+              onClick={() => {
+                setLoggedIn(false);
+                navigate("/signin");
+              }}
             >
               Выйти из аккаунта
             </button>
