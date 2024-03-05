@@ -49,25 +49,25 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         <div className={styles.buttons__container}>
           {loggedIn ? (
             <>
-              <Link to="/profile" className={styles.account__text}>
-                <button
-                  type="button"
-                  className={`${styles.account} ${
-                    location.pathname !== "/" ? styles.account_light : ""
+              <button
+                type="button"
+                className={`${styles.account} ${
+                  location.pathname !== "/" ? styles.account_light : ""
+                }`}
+                onClick={() => navigate("/profile", { replace: true })}
+              >
+                <span className={styles.account__text}>Аккаунт</span>
+                <div
+                  className={`${styles.account__circle} ${
+                    location.pathname !== "/"
+                      ? styles.account__circle_light
+                      : ""
                   }`}
                 >
-                  <span className={styles.account__text}>Аккаунт</span>
-                  <div
-                    className={`${styles.account__circle} ${
-                      location.pathname !== "/"
-                        ? styles.account__circle_light
-                        : ""
-                    }`}
-                  >
-                    <img src={profileImg} alt="Изображение аватара" />
-                  </div>
-                </button>
-              </Link>
+                  <img src={profileImg} alt="Изображение аватара" />
+                </div>
+              </button>
+
               <button
                 className={styles.burger__button}
                 onClick={() => setIsMenuOpened(true)}

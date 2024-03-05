@@ -54,18 +54,19 @@ const Navigation = ({ isMenuOpened, setIsMenuOpened }) => {
             </li>
           </ul>
         </nav>
-        <Link to="/profile" className={styles.account__text}>
-          <button
-            type="button"
-            className={styles.account__button}
-            onClick={() => setIsMenuOpened(false)}
-          >
-            <span className={styles.account__text}>Аккаунт</span>
-            <div className={styles.account__circle}>
-              <img src={profileMan} alt="Изображение аватара" />
-            </div>
-          </button>
-        </Link>
+        <button
+          type="button"
+          className={styles.account__button}
+          onClick={() => {
+            navigate("/profile", { replace: true });
+            setIsMenuOpened(false);
+          }}
+        >
+          <span className={styles.account__text}>Аккаунт</span>
+          <div className={styles.account__circle}>
+            <img src={profileMan} alt="Изображение аватара" />
+          </div>
+        </button>
       </div>
     </section>
   );
