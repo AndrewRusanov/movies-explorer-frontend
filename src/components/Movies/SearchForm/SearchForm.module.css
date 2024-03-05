@@ -48,13 +48,28 @@
 
 @media screen and (max-width: 767px) {
   .search__form {
-    margin: 90px 14px 40px;
+    margin: 86px 14px 35px;
     padding: 0 0 15px;
+  }
+
+  .search__button {
+    background-color: #3456f3;
+    border: none;
+    padding: 8px 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 500;
+    height: 34px;
+    border-radius: 48px;
   }
 
   .search__input {
     font-size: 18px;
-    line-height: normal;
+    line-height: 1.21;
     font-weight: 400;
   }
 }
