@@ -1,5 +1,5 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import closeButtonImage from "../../images/close__button.png";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import closeButtonImage from "../../images/close__button.svg";
 import profileMan from "../../images/header__profile.svg";
 import styles from "./Navigation.module.css";
 

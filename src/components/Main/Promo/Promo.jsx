@@ -1,5 +1,5 @@
 import styles from "./Promo.module.css";
-import promoImage from "../../../images/promo__image.png";
+import promoImage from "../../../images/promo__logo.svg";
 
 const Promo = () => {
   const handleScrollToComponent = (id) => {

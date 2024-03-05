@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.filter__container {
+  cursor: pointer;
+}
+
 .filter__text {
   margin: 0;
   padding: 0;

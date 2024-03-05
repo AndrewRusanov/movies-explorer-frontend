@@ -59,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(../../../images/deleteMovie.png) no-repeat center / cover;
+  background: url(../../../images/delete__movie.svg) no-repeat center / cover;
 }
 
 .card:hover .card__delete {
