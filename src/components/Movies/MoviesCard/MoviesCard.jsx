@@ -15,7 +15,7 @@ const MoviesCard = ({ title, duration }) => {
         className={styles.card__logo}
       />
       <div className={styles.card__about}>
-        <p className={styles.card__title}>{title}</p>
+        <h2 className={styles.card__title}>{title}</h2>
         {location.pathname === "/movies" ? (
           <button
             type="button"
