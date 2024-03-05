@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../../images/header__logo.svg";
 import styles from "./Login.module.css";
 import { emailRegex } from "../../utils/constants";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Login = ({ setLoggedIn }) => {
   const [email, setEmail] = useState(null);
@@ -15,11 +15,9 @@ const Login = ({ setLoggedIn }) => {
     <section className={styles.login__container}>
       <div className={styles.login__wrapper}>
         <div className={styles.form__container}>
-          <img
-            src={logo}
-            alt="Логотип проекта"
-            className={styles.login__logo}
-          />
+          <Link to="/" className={styles.login__logo}>
+            <img src={logo} alt="Логотип проекта" />
+          </Link>
           <h1 className={styles.login__title}>Рады видеть!</h1>
           <span className={styles.input__caption}>E-mail</span>
           <input

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Register.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import { emailRegex } from "../../utils/constants";
 
@@ -16,11 +16,9 @@ const Register = () => {
     <section className={styles.register__container}>
       <div className={styles.register__wrapper}>
         <form className={styles.form__container}>
-          <img
-            src={logo}
-            alt="Логотип проекта"
-            className={styles.register__logo}
-          />
+          <Link to="/" className={styles.register__logo}>
+            <img src={logo} alt="Логотип проекта" />
+          </Link>
           <h1 className={styles.register__title}>Добро пожаловать!</h1>
           <span className={styles.input__caption}>Имя</span>
           <input

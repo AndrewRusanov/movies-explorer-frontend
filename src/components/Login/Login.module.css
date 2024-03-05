@@ -33,6 +33,10 @@
   object-fit: cover;
 }
 
+.login__logo:hover {
+  cursor: pointer;
+}
+
 .login__title {
   font-size: 24px;
   font-weight: 500;
