@@ -132,9 +132,9 @@
 
   .promo__title {
     font-size: 30px;
-    line-height: 58px;
+    line-height: 38px;
     text-align: center;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em;
     max-width: 300px;
   }
 

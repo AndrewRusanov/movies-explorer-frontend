@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import profileImg from "../../images/header__profile.svg";
 import styles from "./Header.module.css";
@@ -8,6 +8,7 @@ import Navigation from "../Navigation/Navigation";
 const Header = ({ loggedIn, setLoggedIn }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header
@@ -102,16 +103,16 @@ const Header = ({ loggedIn, setLoggedIn }) => {
               <NavLink className={styles.header__authLink} to="/signup">
                 Регистрация
               </NavLink>
-              <Link to="/signin">
-                <button
-                  onClick={() => {
-                    setLoggedIn(true);
-                  }}
-                  className={styles.header__loginBtn}
-                >
-                  Войти
-                </button>
-              </Link>
+
+              <button
+                onClick={() => {
+                  setLoggedIn(true);
+                  navigate("/signin", { replace: true });
+                }}
+                className={styles.header__loginBtn}
+              >
+                Войти
+              </button>
             </>
           )}
         </div>

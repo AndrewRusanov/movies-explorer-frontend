@@ -36,7 +36,7 @@
   right: 23px;
   width: 22px;
   height: 22px;
-  /* z-index: ; */
+  z-index: 3;
 }
 
 .navigation__closeBtn:hover {
@@ -51,7 +51,7 @@
 }
 
 .navigation__list {
-  margin: 160px auto 520px;
+  margin: 160px auto 620px;
   list-style-type: none;
   padding: 0;
 }

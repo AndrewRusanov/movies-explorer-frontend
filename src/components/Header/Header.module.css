@@ -195,6 +195,16 @@
   .burger__button {
     display: block;
   }
+
+  .header__loginBtn {
+    width: 54px;
+    height: 26px;
+    margin: 0 0 0 14px;
+  }
+
+  .header__authLink {
+    font-weight: 400;
+  }
 }
 
 @media screen and (max-width: 767px) {

@@ -18,7 +18,7 @@
   font-weight: 400;
   font-size: 22px;
   line-height: 1.21;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   border-bottom: 1px solid black;
 }
 
@@ -42,7 +42,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 24.2px;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   margin-bottom: 26px;
 }
 
@@ -196,7 +196,7 @@
 
   .about__caption {
     font-size: 11px;
-    line-height: 26px;
+    line-height: 16px;
     width: 284px;
   }
 
