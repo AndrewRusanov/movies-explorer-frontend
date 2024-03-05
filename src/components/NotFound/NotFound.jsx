@@ -2,8 +2,8 @@ import styles from "./NotFound.module.css";
 
 const NotFound = ({ goBack }) => {
   return (
-    <section className={styles.notFound__container}>
-      <div className={styles.notFound__wrapper}>
+    <main className={styles.notFound__container}>
+      <section className={styles.notFound__wrapper}>
         <h1 className={styles.notFound__title}>404</h1>
         <p className={styles.notFound__subtitle}>Страница не найдена</p>
         <button
@@ -13,8 +13,8 @@ const NotFound = ({ goBack }) => {
         >
           Назад
         </button>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

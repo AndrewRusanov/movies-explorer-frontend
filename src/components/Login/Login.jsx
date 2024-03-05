@@ -12,8 +12,8 @@ const Login = ({ setLoggedIn }) => {
   const navigate = useNavigate();
 
   return (
-    <section className={styles.login__container}>
-      <div className={styles.login__wrapper}>
+    <main className={styles.login__container}>
+      <section className={styles.login__wrapper}>
         <div className={styles.form__container}>
           <Link to="/" className={styles.login__logo}>
             <img src={logo} alt="Логотип проекта" />
@@ -69,8 +69,8 @@ const Login = ({ setLoggedIn }) => {
             </NavLink>
           </p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

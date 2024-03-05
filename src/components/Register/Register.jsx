@@ -13,8 +13,8 @@ const Register = () => {
   const navigate = useNavigate();
 
   return (
-    <section className={styles.register__container}>
-      <div className={styles.register__wrapper}>
+    <main className={styles.register__container}>
+      <section className={styles.register__wrapper}>
         <form className={styles.form__container}>
           <Link to="/" className={styles.register__logo}>
             <img src={logo} alt="Логотип проекта" />
@@ -72,8 +72,8 @@ const Register = () => {
             </NavLink>
           </p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

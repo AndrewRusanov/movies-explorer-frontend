@@ -6,13 +6,13 @@ import SearchForm from "./SearchForm/SearchForm";
 
 const Movies = () => {
   return (
-    <section className={styles.movies__container}>
-      <div className={styles.movies__wrapper}>
+    <main className={styles.movies__container}>
+      <section className={styles.movies__wrapper}>
         <SearchForm />
         <FilterCheckbox />
         <MoviesCardList moviesList={moviesCardList} />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

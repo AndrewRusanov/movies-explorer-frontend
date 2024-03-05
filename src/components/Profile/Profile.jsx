@@ -8,8 +8,8 @@ const Profile = ({ setLoggedIn }) => {
   const navigate = useNavigate();
 
   return (
-    <section className={styles.profile__container}>
-      <div className={styles.profile__wrapper}>
+    <main className={styles.profile__container}>
+      <section className={styles.profile__wrapper}>
         <h1 className={styles.profile__title}>Привет, Виталий!</h1>
         <form className={styles.profile__form}>
           <label className={styles.input__placeholder}>
@@ -77,8 +77,8 @@ const Profile = ({ setLoggedIn }) => {
             </button>
           </>
         )}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

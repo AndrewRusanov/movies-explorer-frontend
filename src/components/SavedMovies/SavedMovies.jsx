@@ -6,13 +6,13 @@ import styles from "./SavedMovies.module.css";
 
 const SavedMovies = () => {
   return (
-    <section className={styles.movies__container}>
-      <div className={styles.movies__wrapper}>
+    <main className={styles.movies__container}>
+      <section className={styles.movies__wrapper}>
         <SearchForm />
         <FilterCheckbox />
         <MoviesCardList moviesList={savedMoviesCardList} />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 
