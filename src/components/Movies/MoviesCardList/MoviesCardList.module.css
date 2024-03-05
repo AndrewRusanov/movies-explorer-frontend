@@ -10,6 +10,7 @@
 
 .cardList__wrapper {
   margin: 70px 70px 50px;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 270px);
   row-gap: 38px;

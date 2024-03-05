@@ -45,11 +45,11 @@ const MoviesCardList = ({ moviesList }) => {
 
   return (
     <section className={styles.cardList__container}>
-      <div className={styles.cardList__wrapper}>
+      <ul className={styles.cardList__wrapper}>
         {visibleMovies.map((item) => {
           return <MoviesCard title={item.title} duration={item.duration} />;
         })}
-      </div>
+      </ul>
       {visibleMovies.length < moviesList.length &&
         location.pathname !== "/saved-movies" && (
           <button

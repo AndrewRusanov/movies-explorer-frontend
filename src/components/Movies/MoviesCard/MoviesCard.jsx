@@ -8,7 +8,7 @@ const MoviesCard = ({ title, duration }) => {
   const location = useLocation();
 
   return (
-    <div className={styles.card}>
+    <li className={styles.card}>
       <img
         src={defaultCardImage}
         alt={`Обложка фильма: ${title}`}
@@ -31,7 +31,7 @@ const MoviesCard = ({ title, duration }) => {
         )}
       </div>
       <span className={styles.card__duration}>{duration}</span>
-    </div>
+    </li>
   );
 };
 
