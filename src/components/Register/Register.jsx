@@ -22,6 +22,9 @@ const Register = () => {
           <h1 className={styles.register__title}>Добро пожаловать!</h1>
           <span className={styles.input__caption}>Имя</span>
           <input
+            required
+            minLength={2}
+            maxLength={30}
             type="text"
             className={styles.input}
             value={username}
@@ -29,6 +32,7 @@ const Register = () => {
           />
           <span className={styles.input__caption}>E-mail</span>
           <input
+            required
             type="email"
             className={styles.input}
             pattern={emailRegex}
@@ -37,6 +41,7 @@ const Register = () => {
           />
           <span className={styles.input__caption}>Пароль</span>
           <input
+            required
             type="password"
             className={`${styles.input} ${
               isError ? styles.input_type_error : ""

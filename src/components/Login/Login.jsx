@@ -21,6 +21,7 @@ const Login = ({ setLoggedIn }) => {
           <h1 className={styles.login__title}>Рады видеть!</h1>
           <span className={styles.input__caption}>E-mail</span>
           <input
+            required
             type="email"
             pattern={emailRegex}
             className={styles.input}
@@ -31,6 +32,7 @@ const Login = ({ setLoggedIn }) => {
           />
           <span className={styles.input__caption}>Пароль</span>
           <input
+            required
             type="password"
             className={`${styles.input} ${
               isError ? styles.input_type_error : ""
