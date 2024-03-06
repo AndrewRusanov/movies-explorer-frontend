@@ -33,6 +33,7 @@ const Login = ({ setLoggedIn }) => {
           <span className={styles.input__caption}>Пароль</span>
           <input
             required
+            minLength={8}
             type="password"
             className={`${styles.input} ${
               isError ? styles.input_type_error : ""
