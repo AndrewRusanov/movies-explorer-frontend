@@ -43,6 +43,7 @@ const Register = () => {
           <input
             required
             type="password"
+            minLength={8}
             className={`${styles.input} ${
               isError ? styles.input_type_error : ""
             }`}
