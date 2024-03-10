@@ -1,0 +1,24 @@
+.movies__container {
+  color: black;
+  margin: 0 auto;
+}
+
+.movies__wrapper {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1279px) {
+  .movies__wrapper {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movies__wrapper {
+    max-width: 320px;
+  }
+}
