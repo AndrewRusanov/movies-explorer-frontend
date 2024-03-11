@@ -62,7 +62,10 @@ function App() {
           }
         />
         <Route path="/signin" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/signup" element={<Register />} />
+        <Route
+          path="/signup"
+          element={<Register setLoggedIn={setLoggedIn} />}
+        />
         <Route path="*" element={<NotFound goBack={goBack} />} />
       </Routes>
     </div>
