@@ -12,15 +12,22 @@ class MainApi {
   };
 
   register = (name, password, email) => {
-    console.log(
-      "==================== попал внутрь register ============================"
-    );
     return fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, password, email }),
+      body: JSON.stringify({ name, email, password }),
+    }).then((res) => this.__getResponse(res));
+  };
+
+  signin = (email, password) => {
+    return fetch(`${BASE_URL}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
     }).then((res) => this.__getResponse(res));
   };
 }

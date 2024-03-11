@@ -5,7 +5,7 @@ import logo from "../../images/header__logo.svg";
 import { mainApi } from "../../utils/MainApi";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
-const Register = ({ setLoggedIn }) => {
+const Register = ({ onRegister, setLoggedIn }) => {
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation();
 
@@ -13,20 +13,7 @@ const Register = ({ setLoggedIn }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    mainApi
-      .register(values.name, values.password, values.email)
-      .then(() => {
-        setLoggedIn(true);
-        console.log("Пользователь зарегистрирован");
-        setTimeout(() => {
-          navigate("/movies", { replace: true });
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log("Пользователь не зарегистрирован");
-        console.log(error);
-        setLoggedIn(false);
-      });
+    onRegister(values.name, values.password, values.email);
   };
 
   useEffect(() => {
