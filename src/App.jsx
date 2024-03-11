@@ -11,9 +11,11 @@ import SavedMovies from './components/SavedMovies/SavedMovies';
 import Profile from './components/Profile/Profile';
 import NotFound from './components/NotFound/NotFound';
 import { mainApi } from './utils/MainApi';
+import { CurrentUserContext } from './contexts/CurrentUserContext';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -34,7 +36,8 @@ function App() {
   };
 
   return (
-    <div className={styles.page}>
+   <CurrentUserContext.Provider value={currentUser} >
+     <div className={styles.page}>
       <Routes>
         <Route
           path='/'
@@ -97,6 +100,7 @@ function App() {
         <Route path='*' element={<NotFound goBack={goBack} />} />
       </Routes>
     </div>
+   </CurrentUserContext.Provider>
   );
 }
 
