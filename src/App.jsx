@@ -69,6 +69,7 @@ function App() {
   };
 
   const handleTokenCheck = async () => {
+    setErrorText('');
     if (localStorage.getItem('jwt')) {
       const jwt = localStorage.getItem('jwt');
       mainApi
