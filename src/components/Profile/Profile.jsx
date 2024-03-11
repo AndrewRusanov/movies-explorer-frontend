@@ -1,8 +1,8 @@
-import { useState } from "react";
-import styles from "./Profile.module.css";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import styles from './Profile.module.css';
+import { useNavigate } from 'react-router-dom';
 
-const Profile = ({ setLoggedIn }) => {
+const Profile = ({ setCurrentUser, onSignOut }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
@@ -15,10 +15,10 @@ const Profile = ({ setLoggedIn }) => {
           <label className={styles.input__placeholder}>
             Имя
             <input
-              type="text"
+              type='text'
               disabled={!isEditing}
               className={styles.profile__input}
-              value="Виталий"
+              value='Виталий'
               onChange={(e) => setIsEditing(true)}
             />
           </label>
@@ -26,10 +26,10 @@ const Profile = ({ setLoggedIn }) => {
           <label className={styles.input__placeholder}>
             E-mail
             <input
-              type="text"
+              type='text'
               disabled={!isEditing}
               className={styles.profile__input}
-              value="pochta@yandex.ru"
+              value='pochta@yandex.ru'
               onChange={(e) => setIsEditing(true)}
             />
           </label>
@@ -42,7 +42,7 @@ const Profile = ({ setLoggedIn }) => {
               </span>
             )}
             <button
-              type="submit"
+              type='submit'
               disabled={isError}
               className={styles.profile__submit}
               onClick={(e) => {
@@ -56,7 +56,7 @@ const Profile = ({ setLoggedIn }) => {
         ) : (
           <>
             <button
-              type="button"
+              type='button'
               className={styles.profile__edit}
               onClick={(e) => {
                 e.preventDefault();
@@ -66,12 +66,9 @@ const Profile = ({ setLoggedIn }) => {
               Редактировать
             </button>
             <button
-              type="button"
+              type='button'
               className={styles.profile__signOut}
-              onClick={() => {
-                setLoggedIn(false);
-                navigate("/signin");
-              }}
+              onClick={onSignOut}
             >
               Выйти из аккаунта
             </button>

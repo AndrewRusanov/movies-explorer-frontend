@@ -48,7 +48,7 @@
   object-fit: cover;
 }
 
-.register__logo {
+.register__logo:hover {
   cursor: pointer;
 }
 
@@ -96,6 +96,11 @@
   position: absolute;
   top: 47px;
   left: 0;
+}
+
+.register__error_submit {
+  position: static;
+  text-align: center;
 }
 
 .register__button {
