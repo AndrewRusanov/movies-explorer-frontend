@@ -3,13 +3,14 @@ import styles from "./App.module.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Movies from "./components/Movies/Movies";
 import SavedMovies from "./components/SavedMovies/SavedMovies";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,30 +36,45 @@ function App() {
         <Route
           path="/profile"
           element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Profile setLoggedIn={setLoggedIn} />
-            </>
+            <ProtectedRoute
+              element={
+                <>
+                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                  <Profile setLoggedIn={setLoggedIn} />
+                </>
+              }
+              loggedIn={loggedIn}
+            />
           }
         />
         <Route
           path="/movies"
           element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Movies />
-              <Footer />
-            </>
+            <ProtectedRoute
+              element={
+                <>
+                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                  <Movies />
+                  <Footer />
+                </>
+              }
+              loggedIn={loggedIn}
+            />
           }
         />
         <Route
           path="/saved-movies"
           element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <SavedMovies />
-              <Footer />
-            </>
+            <ProtectedRoute
+              element={
+                <>
+                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                  <SavedMovies />
+                  <Footer />
+                </>
+              }
+              loggedIn={loggedIn}
+            />
           }
         />
         <Route path="/signin" element={<Login setLoggedIn={setLoggedIn} />} />

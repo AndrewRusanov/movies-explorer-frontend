@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import styles from "./Register.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
-import { emailRegex } from "../../utils/constants";
 import { mainApi } from "../../utils/MainApi";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 

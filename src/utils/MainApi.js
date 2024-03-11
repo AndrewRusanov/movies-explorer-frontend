@@ -12,6 +12,9 @@ class MainApi {
   };
 
   register = (name, password, email) => {
+    console.log(
+      "==================== попал внутрь register ============================"
+    );
     return fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: {
