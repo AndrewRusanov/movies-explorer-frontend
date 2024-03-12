@@ -13,7 +13,6 @@ import {
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Movies from './components/Movies/Movies';
-import SavedMovies from './components/SavedMovies/SavedMovies';
 import Profile from './components/Profile/Profile';
 import NotFound from './components/NotFound/NotFound';
 import { mainApi } from './utils/MainApi';
@@ -62,9 +61,9 @@ function App() {
   };
 
   const handleSignOut = () => {
-    localStorage.removeItem('jwt');
+    localStorage.clear();
     setCurrentUser({});
-    setLoggedIn(false)
+    setLoggedIn(false);
     navigate('/', { replace: true });
   };
 
@@ -154,7 +153,7 @@ function App() {
               loggedIn ? (
                 <>
                   <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-                  <SavedMovies />
+                  <Movies />
                   <Footer />
                 </>
               ) : (

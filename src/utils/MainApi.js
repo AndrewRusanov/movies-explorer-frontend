@@ -62,33 +62,33 @@ class MainApi {
     }).then((res) => this.__getResponse(res));
   };
 
-  getUserMovies = (token) => {
+  getUserMovies = () => {
     return fetch(`${this.baseUrl}/movies`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then(this.__getResponse);
   };
 
-  saveMovie = (movie, token) => {
+  saveMovie = (movie) => {
     return fetch(`${this.baseUrl}/movies`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
       body: JSON.stringify(movie),
     }).then(this.__getResponse);
   };
 
-  deleteMovie = (movieId, token) => {
+  deleteMovie = (movieId) => {
     return fetch(`${this.baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then(this.__getResponse);
   };

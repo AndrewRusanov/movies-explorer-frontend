@@ -1,65 +1,78 @@
-import { useEffect, useState } from "react";
-import MoviesCard from "../MoviesCard/MoviesCard";
-import styles from "./MoviesCardList.module.css";
-import { useLocation } from "react-router-dom";
-import { mapWidthToParams } from "../../../utils/constants";
+import { useEffect, useState } from 'react';
+import MoviesCard from '../MoviesCard/MoviesCard';
+import styles from './MoviesCardList.module.css';
+import { useLocation } from 'react-router-dom';
 
-const MoviesCardList = ({ moviesList }) => {
-  const { desktop, tablet, mobile } = mapWidthToParams;
-  const [visibleMovies, setVisibleMovies] = useState([]);
-  const [moviesDetails, setMoviesDetails] = useState(desktop.movies);
-  const location = useLocation();
-  const screenWidth = window.innerWidth;
+const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
+  const { pathname } = useLocation();
+  const [countMovies, setCountMovies] = useState(0);
+  function shownCount() {
+    const display = window.innerWidth;
+    if (display > 1180) {
+      setCountMovies(16);
+    } else if (display > 767) {
+      setCountMovies(8);
+    } else {
+      setCountMovies(4);
+    }
+  }
 
   useEffect(() => {
-    if (moviesList.length) {
-      const result = moviesList.filter(
-        (item, index) => index < moviesDetails.total
-      );
-      setVisibleMovies(result);
-    }
-  }, [moviesList, moviesDetails.total]);
+    shownCount();
+  }, []);
 
-  useEffect(() => {
-    if (location.pathname === "/movies") {
-      if (screenWidth >= desktop.width) {
-        setMoviesDetails(desktop.movies);
-      } else if (screenWidth < desktop.width && screenWidth > tablet.width) {
-        setMoviesDetails(tablet.movies);
-      } else {
-        setMoviesDetails(mobile.movies);
-      }
-    }
-  }, [desktop, tablet, mobile, location.pathname, screenWidth]);
-
-  const handleLoadMoreMovies = () => {
-    const start = visibleMovies.length;
-    const end = start + moviesDetails.more;
-    const additional = moviesList.length - start;
-
-    if (additional > 0) {
-      const newMovies = moviesList.slice(start, end);
-      setVisibleMovies([...visibleMovies, ...newMovies]);
-    }
+  const resizeAction = () => {
+    setTimeout(() => {
+      shownCount();
+    }, 500);
   };
+
+  useEffect(() => {
+    shownCount();
+    window.addEventListener('resize', resizeAction);
+    return () => {
+      document.removeEventListener('resize', resizeAction);
+    };
+  }, []);
+
+  function showMore() {
+    const display = window.innerWidth;
+    if (display > 1180) {
+      setCountMovies(countMovies + 4);
+    } else if (display > 767) {
+      setCountMovies(countMovies + 2);
+    } else {
+      setCountMovies(countMovies + 1);
+    }
+  }
 
   return (
     <section className={styles.cardList__container}>
-      <ul className={styles.cardList__wrapper}>
-        {visibleMovies.map((item) => {
-          return <MoviesCard title={item.title} duration={item.duration} />;
-        })}
-      </ul>
-      {visibleMovies.length < moviesList.length &&
-        location.pathname !== "/saved-movies" && (
-          <button
-            type="button"
-            onClick={handleLoadMoreMovies}
-            className={styles.cardList__button}
-          >
-            Ещё
-          </button>
-        )}
+      {pathname === '/saved-movies' ? (
+        <ul className={styles.cardList__wrapper}>
+          {savedMoviesList.map(
+            (movie) => (
+              <MoviesCard movie={movie} handleLikeMovie={handleLikeMovie} />
+            ),
+            16
+          )}
+        </ul>
+      ) : (
+        <>
+          <ul className={styles.cardList__wrapper}>
+            {movies.slice(0, countMovies).map((movie) => (
+              <MoviesCard movie={movie} handleLikeMovie={handleLikeMovie} />
+            ))}
+          </ul>
+          {movies.length > countMovies ? (
+            <button onClick={showMore} className={styles.cardList__button}>
+              Ещё
+            </button>
+          ) : (
+            <></>
+          )}
+        </>
+      )}
     </section>
   );
 };
