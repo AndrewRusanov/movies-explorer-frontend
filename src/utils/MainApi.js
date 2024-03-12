@@ -11,7 +11,7 @@ class MainApi {
       : Promise.reject(`Ошибка: ${response.status}`);
   };
 
-  register = (name, password, email) => {
+  register = (name, email, password) => {
     return fetch(`${this.baseUrl}/signup`, {
       method: 'POST',
       headers: {

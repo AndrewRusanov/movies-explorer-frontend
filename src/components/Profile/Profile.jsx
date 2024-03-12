@@ -107,7 +107,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             )}
             <button
               type='submit'
-              disabled={isError}
+              disabled={isError || !isValid}
               className={styles.profile__submit}
               onClick={(e) => {
                 e.preventDefault();
