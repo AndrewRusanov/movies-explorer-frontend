@@ -13,7 +13,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
     } else if (display > 767) {
       setCountMovies(8);
     } else {
-      setCountMovies(4);
+      setCountMovies(5);
     }
   }
 
@@ -42,7 +42,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
     } else if (display > 767) {
       setCountMovies(countMovies + 2);
     } else {
-      setCountMovies(countMovies + 1);
+      setCountMovies(countMovies + 2);
     }
   }
 

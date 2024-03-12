@@ -1,14 +1,16 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/header__logo.svg";
 import profileImg from "../../images/header__profile.svg";
 import styles from "./Header.module.css";
 import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({ loggedIn, setLoggedIn }) => {
+const Header = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const loggedIn = localStorage.getItem('loggedIn');
 
   return (
     <header
@@ -106,7 +108,6 @@ const Header = ({ loggedIn, setLoggedIn }) => {
 
               <button
                 onClick={() => {
-                  setLoggedIn(true);
                   navigate("/signin", { replace: true });
                 }}
                 className={styles.header__loginBtn}

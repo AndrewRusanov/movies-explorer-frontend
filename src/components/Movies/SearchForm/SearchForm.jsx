@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 const SearchForm = ({ handleSearch, setSavedMovies }) => {
   const [shorts, setShorts] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [placeholderText, setPlaceHolderText] = useState('Фильм');
   const { pathname } = useLocation();
 
   const handleChange = (evt) => {
@@ -22,6 +23,10 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (!inputValue) {
+      setPlaceHolderText('Нужно ввести ключевое слово');
+      return;
+    }
     if (pathname === '/movies') {
       localStorage.setItem('query', inputValue);
     }
@@ -50,18 +55,19 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
 
   return (
     <form>
-      <form className={styles.search__form} onSubmit={handleSubmit}>
+      <form
+        className={styles.search__form}
+        onSubmit={(event) => handleSubmit(event)}
+      >
         <input
           name='movie'
           type='text'
-          placeholder='Фильм'
+          placeholder={placeholderText}
           className={styles.search__input}
           onChange={handleChange}
           value={inputValue}
         />
-        <button type='submit' className={styles.search__button}>
-          Найти
-        </button>
+        <button className={styles.search__button}>Найти</button>
       </form>
       <FilterCheckbox onChangeFilter={onChangeFilter} shorts={shorts} />
     </form>

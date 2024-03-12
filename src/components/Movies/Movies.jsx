@@ -6,15 +6,18 @@ import { moviesApi } from '../../utils/MoviesApi';
 import { mainApi } from '../../utils/MainApi';
 import searchFilter from '../../utils/searchFilter';
 import Preloader from '../Preloader/Preloader';
+import { useNavigate } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const { pathname } = useNavigate();
+
   useEffect(() => {
     getAllMovies();
-  }, []);
+  }, [pathname]);
 
   const getAllMovies = () => {
     const movies = JSON.parse(localStorage.getItem('movies') || '[]');
@@ -59,6 +62,7 @@ const Movies = () => {
     if (path === '/movies') {
       const movies = JSON.parse(localStorage.getItem('movies'));
       const filtered = searchFilter(movies, query, shorts);
+      console.log('======= Фильтр =========', filtered);
       setMovies(filtered);
     } else {
       const savedMovies = JSON.parse(localStorage.getItem('savedMovies'));
@@ -72,16 +76,16 @@ const Movies = () => {
     console.log('Нажал на лайк', movie);
     const prepareMovie = {
       country: movie.country,
-        director: movie.director,
-        duration: movie.duration.toString(),
-        year: movie.year,
-        description: movie.description,
-        image: `https://api.nomoreparties.co/${movie.image.url}`,
-        trailerLink: movie.trailerLink,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
-        thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
-        movieId: movie.id,
+      director: movie.director,
+      duration: movie.duration.toString(),
+      year: movie.year,
+      description: movie.description,
+      image: `https://api.nomoreparties.co/${movie.image.url}`,
+      trailerLink: movie.trailerLink,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
+      movieId: movie.id,
     };
 
     if (movie.isLiked || path === '/saved-movies') {

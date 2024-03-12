@@ -18,9 +18,9 @@ import NotFound from './components/NotFound/NotFound';
 import { mainApi } from './utils/MainApi';
 import { CurrentUserContext } from './contexts/CurrentUserContext';
 import { mapErrorsToMessage } from './utils/constants';
+import ProtectedRouteElement from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [errorText, setErrorText] = useState('');
   const [currentUser, setCurrentUser] = useState({});
 
@@ -63,7 +63,6 @@ function App() {
   const handleSignOut = () => {
     localStorage.clear();
     setCurrentUser({});
-    setLoggedIn(false);
     navigate('/', { replace: true });
   };
 
@@ -76,8 +75,10 @@ function App() {
         .then((res) => {
           if (res) {
             handleGetUserInfo();
-            (pathname === '/signup' || pathname === '/signin') &&
-              navigate('/movies', { replace: true });
+            if (localStorage.getItem('loggedIn')) {
+              (pathname === '/signup' || pathname === '/signin') &&
+                navigate('/movies', { replace: true });
+            }
           }
         })
         .catch((error) => console.log(`Ошибка проверки токена - ${error}`));
@@ -90,7 +91,7 @@ function App() {
       const userData = await mainApi.getUserInfo(token);
       if (userData) {
         await setCurrentUser(userData);
-        setLoggedIn(true);
+        localStorage.setItem('loggedIn', true);
         return true;
       }
     } catch (error) {
@@ -111,7 +112,7 @@ function App() {
             path='/'
             element={
               <>
-                <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                <Header />
                 <Main />
                 <Footer />
               </>
@@ -120,45 +121,33 @@ function App() {
           <Route
             path='/profile'
             element={
-              loggedIn ? (
-                <>
-                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-                  <Profile
-                    setCurrentUser={setCurrentUser}
-                    onSignOut={handleSignOut}
-                  />
-                </>
-              ) : (
-                <Navigate to='/signin' replace />
-              )
+              <ProtectedRouteElement>
+                <Header />
+                <Profile
+                  setCurrentUser={setCurrentUser}
+                  onSignOut={handleSignOut}
+                />
+              </ProtectedRouteElement>
             }
           />
           <Route
             path='/movies'
             element={
-              loggedIn ? (
-                <>
-                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-                  <Movies />
-                  <Footer />
-                </>
-              ) : (
-                <Navigate to='/signin' replace />
-              )
+              <ProtectedRouteElement>
+                <Header />
+                <Movies />
+                <Footer />
+              </ProtectedRouteElement>
             }
           />
           <Route
             path='/saved-movies'
             element={
-              loggedIn ? (
-                <>
-                  <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-                  <Movies />
-                  <Footer />
-                </>
-              ) : (
-                <Navigate to='/signin' replace />
-              )
+              <ProtectedRouteElement>
+                <Header />
+                <Movies />
+                <Footer />
+              </ProtectedRouteElement>
             }
           />
           <Route
