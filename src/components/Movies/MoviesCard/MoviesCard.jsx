@@ -13,17 +13,19 @@ const MoviesCard = ({ movie, handleLikeMovie }) => {
     movie.isLiked ? styles.card__like_active : ''
   }`;
 
-  function likeMovie(e) {
+  function likeMovie() {
     handleLikeMovie(movie, path);
   }
 
   return (
     <li className={styles.card}>
-      <img
-        src={`${MOVIES_URL_ADDRESS}${imageUrl}`}
-        alt={movie.nameRU}
-        className={styles.card__logo}
-      />
+      <a href={movieTrailer} target='_blank' rel='noopener noreferrer'>
+        <img
+          src={`${MOVIES_URL_ADDRESS}${imageUrl}`}
+          alt={movie.nameRU}
+          className={styles.card__logo}
+        />
+      </a>
       <div className={styles.card__about}>
         <h2 className={styles.card__title}>{movie.nameRU}</h2>
         {location.pathname === '/movies' ? (
@@ -37,7 +39,7 @@ const MoviesCard = ({ movie, handleLikeMovie }) => {
         )}
       </div>
       <span className={styles.card__duration}>
-        {hours}ч {minutes} мин
+        {hours}ч {minutes}мин
       </span>
     </li>
   );

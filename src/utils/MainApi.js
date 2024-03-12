@@ -73,6 +73,7 @@ class MainApi {
   };
 
   saveMovie = (movie) => {
+    console.log('В Запросе', movie);
     return fetch(`${this.baseUrl}/movies`, {
       method: 'POST',
       headers: {

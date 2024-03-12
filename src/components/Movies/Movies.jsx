@@ -58,7 +58,6 @@ const Movies = () => {
     setIsLoading(true);
     if (path === '/movies') {
       const movies = JSON.parse(localStorage.getItem('movies'));
-      console.log('=========== перед searchFilter ==================', movies);
       const filtered = searchFilter(movies, query, shorts);
       setMovies(filtered);
     } else {
@@ -70,18 +69,19 @@ const Movies = () => {
   };
 
   const handleLikeMovie = (movie, path) => {
+    console.log('Нажал на лайк', movie);
     const prepareMovie = {
       country: movie.country,
-      director: movie.director,
-      duration: movie.duration.toString(),
-      year: movie.year,
-      description: movie.description,
-      image: `https://api.nomoreparties.co/${movie.image.url}`,
-      trailerLink: movie.trailerLink,
-      thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
-      movieId: movie.id,
-      nameRU: movie.nameRU,
-      nameEN: movie.nameEN,
+        director: movie.director,
+        duration: movie.duration.toString(),
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co/${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+        thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
+        movieId: movie.id,
     };
 
     if (movie.isLiked || path === '/saved-movies') {
@@ -97,6 +97,7 @@ const Movies = () => {
       mainApi
         .saveMovie(prepareMovie)
         .then((movieResp) => {
+          console.log('========== movieResp ==========', movieResp);
           changeLocalStorageData(movie, movieResp._id);
         })
         .catch((error) => {
