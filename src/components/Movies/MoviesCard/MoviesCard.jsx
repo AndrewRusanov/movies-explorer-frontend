@@ -31,11 +31,17 @@ const MoviesCard = ({ movie, handleLikeMovie }) => {
         {location.pathname === '/movies' ? (
           <button
             type='button'
+            title='Добавить в избранное'
             className={movieLikeButtonClassName}
             onClick={likeMovie}
           ></button>
         ) : (
-          <button type='button' className={styles.card__delete}></button>
+          <button
+            type='button'
+            title='Убрать из ибранного'
+            onClick={likeMovie}
+            className={styles.card__delete}
+          ></button>
         )}
       </div>
       <span className={styles.card__duration}>
