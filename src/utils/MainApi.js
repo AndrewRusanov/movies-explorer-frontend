@@ -61,6 +61,37 @@ class MainApi {
       },
     }).then((res) => this.__getResponse(res));
   };
+
+  getUserMovies = (token) => {
+    return fetch(`${this.baseUrl}/movies`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(this.__getResponse);
+  };
+
+  saveMovie = (movie, token) => {
+    return fetch(`${this.baseUrl}/movies`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(movie),
+    }).then(this.__getResponse);
+  };
+
+  deleteMovie = (movieId, token) => {
+    return fetch(`${this.baseUrl}/movies/${movieId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(this.__getResponse);
+  };
 }
 
 export const mainApi = new MainApi({
