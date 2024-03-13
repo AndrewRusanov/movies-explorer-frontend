@@ -22,7 +22,6 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
   };
 
   const handleSubmit = (evt) => {
-    console.log('Сработал сабмит');
     evt.preventDefault();
     if (!inputValue) {
       setPlaceHolderText('Нужно ввести ключевое слово');
