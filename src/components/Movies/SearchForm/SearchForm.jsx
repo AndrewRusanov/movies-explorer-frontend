@@ -22,6 +22,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
   };
 
   const handleSubmit = (evt) => {
+    console.log('Сработал сабмит');
     evt.preventDefault();
     if (!inputValue) {
       setPlaceHolderText('Нужно ввести ключевое слово');
@@ -54,7 +55,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
   }, [pathname]);
 
   return (
-    <form>
+    <div>
       <form
         className={styles.search__form}
         onSubmit={(event) => handleSubmit(event)}
@@ -70,7 +71,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
         <button className={styles.search__button}>Найти</button>
       </form>
       <FilterCheckbox onChangeFilter={onChangeFilter} shorts={shorts} />
-    </form>
+    </div>
   );
 };
 

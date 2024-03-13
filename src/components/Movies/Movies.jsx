@@ -62,7 +62,6 @@ const Movies = () => {
     if (path === '/movies') {
       const movies = JSON.parse(localStorage.getItem('movies'));
       const filtered = searchFilter(movies, query, shorts);
-      console.log('======= Фильтр =========', filtered);
       setMovies(filtered);
     } else {
       const savedMovies = JSON.parse(localStorage.getItem('savedMovies'));
@@ -73,7 +72,6 @@ const Movies = () => {
   };
 
   const handleLikeMovie = (movie, path) => {
-    console.log('Нажал на лайк', movie);
     const prepareMovie = {
       country: movie.country,
       director: movie.director,
@@ -101,7 +99,6 @@ const Movies = () => {
       mainApi
         .saveMovie(prepareMovie)
         .then((movieResp) => {
-          console.log('========== movieResp ==========', movieResp);
           changeLocalStorageData(movie, movieResp._id);
         })
         .catch((error) => {

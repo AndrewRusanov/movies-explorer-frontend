@@ -53,7 +53,6 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
   useEffect(() => {
     setName(currentUser.name);
     setEmail(currentUser.email);
-    console.log('===========', name, email);
   }, [currentUser.name, currentUser.email]);
 
   return (
