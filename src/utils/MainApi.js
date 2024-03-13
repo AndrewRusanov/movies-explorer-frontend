@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.rusanov.nomoredomainsmonster.ru';
+const BASE_URL = 'https://api.movies-diploma.nomoredomainsmonster.ru/';
 
 class MainApi {
   constructor({ baseUrl }) {
