@@ -72,7 +72,7 @@ function App() {
       const jwt = localStorage.getItem('jwt');
       mainApi
         .checkToken(jwt)
-        .then((res) => {
+        .then(res => {
           if (res) {
             handleGetUserInfo();
             if (localStorage.getItem('loggedIn')) {
@@ -81,7 +81,10 @@ function App() {
             }
           }
         })
-        .catch((error) => console.log(`Ошибка проверки токена - ${error}`));
+        .catch(error => {
+          console.log(`Ошибка проверки токена - ${error}`);
+          navigate('/signin', { replace: true });
+        });
     }
   };
 
