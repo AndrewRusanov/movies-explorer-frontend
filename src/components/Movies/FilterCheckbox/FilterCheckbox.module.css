@@ -4,10 +4,6 @@
   align-items: center;
 }
 
-.filter__container {
-  cursor: pointer;
-}
-
 .filter__text {
   margin: 0;
   padding: 0;
@@ -22,6 +18,7 @@
   width: 34px;
   height: 14px;
   margin: 0 15px 0 0;
+  cursor: pointer;
 }
 
 .filter__switch .filter__checkbox {
@@ -43,7 +40,7 @@
 
 .filter__slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 10px;
   width: 10px;
   left: 2px;
