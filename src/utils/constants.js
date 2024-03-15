@@ -15,6 +15,14 @@ const mapWidthToParams = {
   mobile: { width: 320, movies: { total: 4, more: 1 } },
 };
 
+const MAX_SHORTS_DURATION = 30;
+
 const MOVIES_URL_ADDRESS = 'https://api.nomoreparties.co';
 
-export { emailRegex, mapWidthToParams, mapErrorsToMessage, MOVIES_URL_ADDRESS };
+export {
+  emailRegex,
+  mapWidthToParams,
+  mapErrorsToMessage,
+  MAX_SHORTS_DURATION,
+  MOVIES_URL_ADDRESS,
+};
