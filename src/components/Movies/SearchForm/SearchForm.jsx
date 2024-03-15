@@ -9,7 +9,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
   const [placeholderText, setPlaceHolderText] = useState('Фильм');
   const { pathname } = useLocation();
 
-  const handleChange = (evt) => {
+  const handleChange = evt => {
     setInputValue(evt.target.value);
   };
 
@@ -21,7 +21,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
     }
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     if (!inputValue) {
       setPlaceHolderText('Нужно ввести ключевое слово');
@@ -57,7 +57,7 @@ const SearchForm = ({ handleSearch, setSavedMovies }) => {
     <div>
       <form
         className={styles.search__form}
-        onSubmit={(event) => handleSubmit(event)}
+        onSubmit={event => handleSubmit(event)}
       >
         <input
           name='movie'
