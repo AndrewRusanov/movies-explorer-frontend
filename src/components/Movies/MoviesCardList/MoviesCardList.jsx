@@ -6,9 +6,10 @@ import { useLocation } from 'react-router-dom';
 const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
   const { pathname } = useLocation();
   const [countMovies, setCountMovies] = useState(0);
+
   function shownCount() {
     const display = window.innerWidth;
-    if (display > 1180) {
+    if (display > 1279) {
       setCountMovies(16);
     } else if (display > 767) {
       setCountMovies(8);
@@ -19,7 +20,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
 
   useEffect(() => {
     shownCount();
-  }, []);
+  }, [movies]);
 
   const resizeAction = () => {
     setTimeout(() => {
@@ -37,7 +38,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
 
   function showMore() {
     const display = window.innerWidth;
-    if (display > 1180) {
+    if (display > 1279) {
       setCountMovies(countMovies + 4);
     } else if (display > 767) {
       setCountMovies(countMovies + 2);
@@ -51,7 +52,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
       {pathname === '/saved-movies' ? (
         <ul className={styles.cardList__wrapper}>
           {savedMoviesList.map(
-            (movie) => (
+            movie => (
               <MoviesCard movie={movie} handleLikeMovie={handleLikeMovie} />
             ),
             16
@@ -60,7 +61,7 @@ const MoviesCardList = ({ handleLikeMovie, movies, savedMoviesList }) => {
       ) : (
         <>
           <ul className={styles.cardList__wrapper}>
-            {movies.slice(0, countMovies).map((movie) => (
+            {movies.slice(0, countMovies).map(movie => (
               <MoviesCard movie={movie} handleLikeMovie={handleLikeMovie} />
             ))}
           </ul>
