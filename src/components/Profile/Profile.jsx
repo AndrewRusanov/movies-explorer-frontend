@@ -159,6 +159,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
               onClick={e => {
                 e.preventDefault();
                 setIsEditing(true);
+                setSuccessMessage('');
               }}
             >
               Редактировать
