@@ -8,6 +8,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
   const currentUser = useContext(CurrentUserContext);
 
   const [isEditing, setIsEditing] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
@@ -28,7 +29,10 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           email: profileUserData.email,
         });
       }
+      setSuccessMessage('Профиль успешно изменён');
+      setIsEditing(false);
     } catch (error) {
+      setSuccessMessage('');
       setIsError(true);
     }
   };
@@ -48,15 +52,12 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
   const handleSubmit = event => {
     event.preventDefault();
     handleEditUser({ name, email });
-    setIsEditing(false);
   };
 
   useEffect(() => {
     setName(currentUser.name);
     setEmail(currentUser.email);
   }, [currentUser.name, currentUser.email]);
-
-  console.log('isError', isError);
 
   return (
     <main className={styles.profile__container}>
@@ -100,9 +101,15 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             {!isValid ? errors.email : ''}
           </span>
         </form>
-        {isError && (
+        {isError ? (
           <span className={styles.profile__error}>
             При обновлении профиля произошла ошибка.
+          </span>
+        ) : (
+          <span
+            className={`${styles.profile__error} ${styles.profile__success} `}
+          >
+            {successMessage}
           </span>
         )}
         {isEditing || isError ? (
