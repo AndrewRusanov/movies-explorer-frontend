@@ -9,13 +9,21 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorNameMessage, setErrorNameMessage] = useState('');
+  const [errorEmailMessage, setErrorEmailMessage] = useState('');
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
+  const [disabledButton, setDisabledButton] = useState(true);
 
   const { errors, isValid, handleChange } = useFormWithValidation();
 
+  useEffect(() => {
+    setDisabledButton(currentUser.name === name && currentUser.email === email);
+  }, [name, email, currentUser.name, currentUser.email]);
+
   const handleEditUser = async data => {
+    setDisabledButton(true);
     const token = localStorage.getItem('jwt');
     try {
       const profileUserData = await mainApi.editUserInfo(data, token);
@@ -29,6 +37,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           email: profileUserData.email,
         });
       }
+      setDisabledButton(false);
       setSuccessMessage('Профиль успешно изменён');
       setIsEditing(false);
     } catch (error) {
@@ -41,12 +50,26 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
     handleChange(event);
     setName(event.target.value);
     setIsError(false);
+    if (event.target.value === currentUser.name) {
+      setErrorNameMessage('Имя совпадает с текущим');
+      setDisabledButton(false);
+    } else {
+      setErrorNameMessage('');
+      setDisabledButton(true);
+    }
   };
 
   const handleEmailChange = event => {
     handleChange(event);
     setEmail(event.target.value);
     setIsError(false);
+    if (event.target.value === currentUser.email) {
+      setErrorEmailMessage('E-mail совпадает с текущим');
+      setDisabledButton(false);
+    } else {
+      setErrorEmailMessage('');
+      setDisabledButton(true);
+    }
   };
 
   const handleSubmit = event => {
@@ -83,6 +106,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           <span className={styles.profile__error}>
             {!isValid ? errors.name : ''}
           </span>
+          <span className={styles.profile__error}>{errorNameMessage}</span>
 
           <label className={styles.input__placeholder}>
             E-mail
@@ -100,6 +124,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           <span className={styles.profile__error}>
             {!isValid ? errors.email : ''}
           </span>
+          <span className={styles.profile__error}>{errorEmailMessage}</span>
         </form>
         {isError ? (
           <span className={styles.profile__error}>
@@ -116,7 +141,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           <>
             <button
               type='submit'
-              disabled={isError || !isValid}
+              disabled={disabledButton}
               className={styles.profile__submit}
               onClick={e => {
                 e.preventDefault();
