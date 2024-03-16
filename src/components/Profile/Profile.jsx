@@ -14,7 +14,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
 
   const { errors, isValid, handleChange } = useFormWithValidation();
 
-  const handleEditUser = async (data) => {
+  const handleEditUser = async data => {
     const token = localStorage.getItem('jwt');
     try {
       const profileUserData = await mainApi.editUserInfo(data, token);
@@ -27,33 +27,36 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
           name: profileUserData.name,
           email: profileUserData.email,
         });
-        return true;
       }
     } catch (error) {
       setIsError(true);
-      return false;
     }
   };
 
-  const handleNameChange = (event) => {
+  const handleNameChange = event => {
     handleChange(event);
     setName(event.target.value);
+    setIsError(false);
   };
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = event => {
     handleChange(event);
     setEmail(event.target.value);
+    setIsError(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     handleEditUser({ name, email });
+    setIsEditing(false);
   };
 
   useEffect(() => {
     setName(currentUser.name);
     setEmail(currentUser.email);
   }, [currentUser.name, currentUser.email]);
+
+  console.log('isError', isError);
 
   return (
     <main className={styles.profile__container}>
@@ -97,20 +100,19 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             {!isValid ? errors.email : ''}
           </span>
         </form>
+        {isError && (
+          <span className={styles.profile__error}>
+            При обновлении профиля произошла ошибка.
+          </span>
+        )}
         {isEditing ? (
           <>
-            {isError && (
-              <span className={styles.profile__error}>
-                При обновлении профиля произошла ошибка.
-              </span>
-            )}
             <button
               type='submit'
               disabled={isError || !isValid}
               className={styles.profile__submit}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
-                setIsEditing(false);
                 handleSubmit(e);
               }}
             >
@@ -122,7 +124,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             <button
               type='button'
               className={styles.profile__edit}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setIsEditing(true);
               }}
