@@ -105,7 +105,7 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             При обновлении профиля произошла ошибка.
           </span>
         )}
-        {isEditing ? (
+        {isEditing || isError ? (
           <>
             <button
               type='submit'
