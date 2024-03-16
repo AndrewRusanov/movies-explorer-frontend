@@ -1,71 +1,170 @@
-import { useState } from "react";
-import styles from "./App.module.css";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
-import Movies from "./components/Movies/Movies";
-import SavedMovies from "./components/SavedMovies/SavedMovies";
-import Profile from "./components/Profile/Profile";
-import NotFound from "./components/NotFound/NotFound";
+import { useEffect, useState } from 'react';
+import styles from './App.module.css';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Movies from './components/Movies/Movies';
+import Profile from './components/Profile/Profile';
+import NotFound from './components/NotFound/NotFound';
+import { mainApi } from './utils/MainApi';
+import { CurrentUserContext } from './contexts/CurrentUserContext';
+import { mapErrorsToMessage } from './utils/constants';
+import ProtectedRouteElement from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [errorText, setErrorText] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
+
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, [pathname]);
+
+  const handleLogin = async (email, password) => {
+    try {
+      const result = await mainApi.signin(email, password);
+      if (result.token) {
+        localStorage.setItem('jwt', result.token);
+        await handleGetUserInfo();
+        navigate('/movies', { replace: true });
+        setErrorText('');
+      }
+    } catch (error) {
+      setErrorText(mapErrorsToMessage[error]);
+    }
+  };
+
+  const handleRegister = async (name, email, password) => {
+    try {
+      const result = await mainApi.register(name, email, password);
+      if (result) {
+        handleLogin(email, password);
+        return true;
+      }
+    } catch (error) {
+      setErrorText(mapErrorsToMessage[error]);
+      return false;
+    }
+  };
+
+  const handleSignOut = () => {
+    localStorage.clear();
+    setCurrentUser({});
+    navigate('/', { replace: true });
+  };
+
+  const handleTokenCheck = async () => {
+    setErrorText('');
+    if (localStorage.getItem('jwt')) {
+      const jwt = localStorage.getItem('jwt');
+      mainApi
+        .checkToken(jwt)
+        .then(res => {
+          if (res) {
+            handleGetUserInfo();
+            if (localStorage.getItem('loggedIn')) {
+              (pathname === '/signup' || pathname === '/signin') &&
+                navigate('/movies', { replace: true });
+            }
+          }
+        })
+        .catch(error => {
+          console.log(`Ошибка проверки токена - ${error}`);
+          navigate('/signin', { replace: true });
+        });
+    }
+  };
+
+  const handleGetUserInfo = async () => {
+    const token = localStorage.getItem('jwt');
+    try {
+      const userData = await mainApi.getUserInfo(token);
+      if (userData) {
+        await setCurrentUser(userData);
+        localStorage.setItem('loggedIn', true);
+        return true;
+      }
+    } catch (error) {
+      console.log(`Ошибка получения данных о пользователе - ${error}`);
+      return false;
+    }
+  };
 
   const goBack = () => {
     navigate(-1);
   };
 
   return (
-    <div className={styles.page}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Main />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Profile setLoggedIn={setLoggedIn} />
-            </>
-          }
-        />
-        <Route
-          path="/movies"
-          element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <Movies />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/saved-movies"
-          element={
-            <>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-              <SavedMovies />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/signin" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="*" element={<NotFound goBack={goBack} />} />
-      </Routes>
-    </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className={styles.page}>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                <Header />
+                <Main />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRouteElement>
+                <Header />
+                <Profile
+                  setCurrentUser={setCurrentUser}
+                  onSignOut={handleSignOut}
+                />
+              </ProtectedRouteElement>
+            }
+          />
+          <Route
+            path='/movies'
+            element={
+              <ProtectedRouteElement>
+                <Header />
+                <Movies />
+                <Footer />
+              </ProtectedRouteElement>
+            }
+          />
+          <Route
+            path='/saved-movies'
+            element={
+              <ProtectedRouteElement>
+                <Header />
+                <Movies />
+                <Footer />
+              </ProtectedRouteElement>
+            }
+          />
+          <Route
+            path='/signin'
+            element={<Login onLogin={handleLogin} errorText={errorText} />}
+          />
+          <Route
+            path='/signup'
+            element={
+              <Register onRegister={handleRegister} errorText={errorText} />
+            }
+          />
+          <Route path='*' element={<NotFound goBack={goBack} />} />
+        </Routes>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
