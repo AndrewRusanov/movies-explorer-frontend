@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
 import logo from '../../images/header__logo.svg';
 import styles from './Login.module.css';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 const Login = ({ onLogin, errorText }) => {
