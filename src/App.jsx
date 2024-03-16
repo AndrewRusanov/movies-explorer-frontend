@@ -39,11 +39,9 @@ function App() {
         await handleGetUserInfo();
         navigate('/movies', { replace: true });
         setErrorText('');
-        return true;
       }
     } catch (error) {
       setErrorText(mapErrorsToMessage[error]);
-      return false;
     }
   };
 

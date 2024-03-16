@@ -5,15 +5,11 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 const Login = ({ onLogin, errorText }) => {
-  const { values, errors, isValid, handleChange } =
-    useFormWithValidation();
+  const { values, errors, isValid, handleChange } = useFormWithValidation();
 
-  const navigate = useNavigate();
-
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     onLogin(values.email, values.password);
-    navigate('/movies', { replace: true });
   };
 
   return (
@@ -21,7 +17,7 @@ const Login = ({ onLogin, errorText }) => {
       <section className={styles.login__wrapper}>
         <form
           className={styles.form__container}
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={e => handleSubmit(e)}
         >
           <Link to='/' className={styles.login__logo}>
             <img src={logo} alt='Логотип проекта' />
