@@ -137,11 +137,11 @@ const Profile = ({ setCurrentUser, onSignOut }) => {
             {successMessage}
           </span>
         )}
-        {isEditing || isError ? (
+        {isEditing ? (
           <>
             <button
               type='submit'
-              disabled={disabledButton}
+              disabled={disabledButton || !isValid}
               className={styles.profile__submit}
               onClick={e => {
                 e.preventDefault();
