@@ -1,4 +1,4 @@
-const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
 const mapErrorsToMessage = {
   'Ошибка: 400': 'Неверно заполнено одно из полей',
