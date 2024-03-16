@@ -15,7 +15,7 @@ const mapWidthToParams = {
   mobile: { width: 320, movies: { total: 4, more: 1 } },
 };
 
-const MAX_SHORTS_DURATION = 30;
+const MAX_SHORTS_DURATION = 40;
 
 const MOVIES_URL_ADDRESS = 'https://api.nomoreparties.co';
 
